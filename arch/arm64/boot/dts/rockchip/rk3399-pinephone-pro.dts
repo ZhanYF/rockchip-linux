@@ -360,6 +360,9 @@
 				regulator-name = "vcc3v0_touch";
 				regulator-min-microvolt = <3000000>;
 				regulator-max-microvolt = <3000000>;
+				regulator-state-mem {
+					regulator-off-in-suspend;
+				};
 			};
 
 			vcca1v8_codec: LDO_REG3 {
@@ -561,6 +564,7 @@
 		VDDIO-supply = <&vcc3v0_touch>;
 		touchscreen-size-x = <720>;
 		touchscreen-size-y = <1440>;
+		poweroff-in-suspend;
 	};
 
 	light-sensor@48 {
