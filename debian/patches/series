@@ -100,4 +100,6 @@ device-tree/0099-arm64-dts-rk3399-pinephone-pro-Magnetometer-is-AF813.patch
 device-tree/0100-arm64-dts-rk3399-pinephone-pro-Add-Pinephone-keyboar.patch
 device-tree/0101-arm64-dts-rk3399-pinephone-pro-add-near-level-to-pro.patch
 device-tree/0102-arm64-dts-rk3399-pinephone-pro-Fix-Alt-DP-VDO-pin-as.patch
-defconfig/0103-arm64-configs-add-rockchip_defconfig.patch
+mobian/0103-arm64-configs-add-rockchip_defconfig.patch
+mobian/0104-builddeb-don-t-build-linux-libc-dev-package.patch
+debian/0105-wireless-add-debian-wireless-regdb-certificates.patch
