@@ -129,3 +129,7 @@ device-tree/0128-arm64-dts-rockchip-rk3399-pinephone-pro-Cleanup-regu.patch
 device-tree/0129-arm64-dts-rockchip-rk3399-pinephone-pro-Support-both.patch
 device-tree/0130-arm64-dts-rk3399-pinephone-pro-Make-LOUT-use-mono-di.patch
 device-tree/0131-arm64-dts-rk3399-pinephone-pro-Fix-initial-codec-clo.patch
+
+mobian/0132-arm64-configs-add-rockchip_defconfig.patch
+mobian/0133-builddeb-don-t-build-linux-libc-dev-package.patch
+debian/0134-wireless-add-debian-wireless-regdb-certificates.patch
