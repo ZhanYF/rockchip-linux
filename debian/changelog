@@ -1,0 +1,5 @@
+linux-5.16-rockchip (5.16~rc2+rockchip-1) unstable; urgency=medium
+
+  * Initial release
+
+ -- Arnaud Ferraris <arnaud.ferraris@gmail.com>  Mon, 29 Nov 2021 03:37:16 +0100
