@@ -1,3 +1,9 @@
+linux-5.16-rockchip (5.16~rc2+rockchip-3) unstable; urgency=medium
+
+  * d/patches: fix defconfig so we get back modem & display
+
+ -- Arnaud Ferraris <arnaud.ferraris@collabora.com>  Wed, 08 Dec 2021 17:41:09 +0100
+
 linux-5.16-rockchip (5.16~rc2+rockchip-2) unstable; urgency=medium
 
   * d/control: don't PreDepend on PinePhone packages.
