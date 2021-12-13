@@ -61,6 +61,6 @@ device-tree/0060-arm64-dts-rk3399-pinephone-pro-Add-support-for-power.patch
 device-tree/0061-arm64-dts-rk3399-pinephone-pro-Add-audio-support.patch
 device-tree/0062-arm64-dts-rk3399-pinephone-pro-Add-flash-and-fix-led.patch
 device-tree/0063-arm64-dts-rk3399-pinephone-pro-add-modem-RI-pin.patch
-device-tree/0064-arm64-dts-rk3399-pinephone-pro-rename-sound-card.patch
+device-tree/0064-arm64-dts-rk3399-pinephone-pro-improve-sound-device.patch
 defconfig/0065-arm64-configs-add-rockchip_defconfig.patch
 mobian/0066-builddeb-don-t-build-linux-libc-dev-package.patch
