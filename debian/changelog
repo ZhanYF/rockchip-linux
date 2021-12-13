@@ -1,3 +1,9 @@
+linux-5.16-rockchip (5.16~rc4+rockchip-6) unstable; urgency=medium
+
+  * d/patches: improve sound device definition.
+
+ -- Arnaud Ferraris <arnaud.ferraris@gmail.com>  Mon, 13 Dec 2021 19:13:35 +0100
+
 linux-5.16-rockchip (5.16~rc4+rockchip-5) unstable; urgency=medium
 
   * d/patches: add modem RI pin for waking up the phone.
