@@ -1,3 +1,11 @@
+linux-5.16-rockchip (5.16~rc6+rockchip-7) unstable; urgency=medium
+
+  * d/patches: add pin switch for disabling the speaker amp.
+  * d/patches: fix sound card pinctrl declaration.
+  * d/patches: rebase on 5.16-rc6.
+
+ -- Arnaud Ferraris <arnaud.ferraris@collabora.com>  Tue, 21 Dec 2021 13:21:10 +0100
+
 linux-5.16-rockchip (5.16~rc4+rockchip-6) unstable; urgency=medium
 
   * d/patches: improve sound device definition.
