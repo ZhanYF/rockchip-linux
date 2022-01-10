@@ -11,7 +11,7 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  1 file changed, 142 insertions(+), 4 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 96b5170..3e9aa7b 100644
+index 96b5170..3bd36ef 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 @@ -456,8 +456,6 @@ regulator-state-mem {
@@ -77,7 +77,7 @@ index 96b5170..3e9aa7b 100644
 +		/*XXX: also depends on vcca1v8_codec for I2C bus power */
 +
 +		reset-gpios = <&gpio1 RK_PA0 GPIO_ACTIVE_LOW>;
-+		powerdown-gpios = <&gpio2 RK_PB4 GPIO_ACTIVE_HIGH>;
++		powerdown-gpios = <&gpio2 RK_PD4 GPIO_ACTIVE_HIGH>;
 +		rotation = <180>;
 +
 +		port {
@@ -178,11 +178,11 @@ index 96b5170..3e9aa7b 100644
 +		};
 +
 +		wcam_pdn: wcam-pdn {
-+			rockchip,pins = <2 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
++			rockchip,pins = <2 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>;
 +		};
 +
 +		ucam_pdn: ucam-pdn {
-+			rockchip,pins = <2 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>;
++			rockchip,pins = <2 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
 +		};
 +	};
 +
