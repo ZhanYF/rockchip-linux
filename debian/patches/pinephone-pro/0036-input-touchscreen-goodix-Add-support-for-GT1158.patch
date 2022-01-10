@@ -10,7 +10,7 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  1 file changed, 1 insertion(+)
 
 diff --git a/drivers/input/touchscreen/goodix.c b/drivers/input/touchscreen/goodix.c
-index 91836019..e2167d8 100644
+index d087fc9..fbefdc1 100644
 --- a/drivers/input/touchscreen/goodix.c
 +++ b/drivers/input/touchscreen/goodix.c
 @@ -94,6 +94,7 @@ static const struct goodix_chip_data gt9x_chip_data = {

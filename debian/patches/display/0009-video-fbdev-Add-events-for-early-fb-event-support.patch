@@ -17,7 +17,7 @@ Signed-off-by: Kyungmin Park <kyungmin.park@samsung.com>
  2 files changed, 16 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/video/fbdev/core/fbmem.c b/drivers/video/fbdev/core/fbmem.c
-index 826175a..fb1651a 100644
+index 0fa7ede..71d9d4a 100644
 --- a/drivers/video/fbdev/core/fbmem.c
 +++ b/drivers/video/fbdev/core/fbmem.c
 @@ -1067,7 +1067,7 @@ int
@@ -52,7 +52,7 @@ index 826175a..fb1651a 100644
  	return ret;
  }
 diff --git a/include/linux/fb.h b/include/linux/fb.h
-index 6f3db99..ffef502a 100644
+index 3da9584..5ac24d0 100644
 --- a/include/linux/fb.h
 +++ b/include/linux/fb.h
 @@ -137,6 +137,11 @@ struct fb_cursor_user {
