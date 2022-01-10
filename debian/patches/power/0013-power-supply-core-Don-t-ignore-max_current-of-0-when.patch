@@ -18,7 +18,7 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  1 file changed, 20 insertions(+), 27 deletions(-)
 
 diff --git a/drivers/power/supply/power_supply_core.c b/drivers/power/supply/power_supply_core.c
-index fc12a4f..f681372 100644
+index 6093754..1c5be0d 100644
 --- a/drivers/power/supply/power_supply_core.c
 +++ b/drivers/power/supply/power_supply_core.c
 @@ -375,41 +375,34 @@ int power_supply_is_system_supplied(void)
