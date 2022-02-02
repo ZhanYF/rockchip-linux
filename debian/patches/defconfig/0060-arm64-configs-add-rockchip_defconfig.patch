@@ -3,16 +3,16 @@ Date: Mon, 29 Nov 2021 03:27:17 +0100
 Subject: arm64: configs: add rockchip_defconfig
 
 ---
- arch/arm64/configs/rockchip_defconfig | 2499 +++++++++++++++++++++++++++++++++
- 1 file changed, 2499 insertions(+)
+ arch/arm64/configs/rockchip_defconfig | 2500 +++++++++++++++++++++++++++++++++
+ 1 file changed, 2500 insertions(+)
  create mode 100644 arch/arm64/configs/rockchip_defconfig
 
 diff --git a/arch/arm64/configs/rockchip_defconfig b/arch/arm64/configs/rockchip_defconfig
 new file mode 100644
-index 00000000..bd6fe8b
+index 00000000..d8ca952
 --- /dev/null
 +++ b/arch/arm64/configs/rockchip_defconfig
-@@ -0,0 +1,2499 @@
+@@ -0,0 +1,2500 @@
 +CONFIG_SYSVIPC=y
 +CONFIG_POSIX_MQUEUE=y
 +CONFIG_NO_HZ=y
@@ -89,6 +89,7 @@ index 00000000..bd6fe8b
 +# CONFIG_SOCIONEXT_SYNQUACER_PREITS is not set
 +CONFIG_ARM64_VA_BITS_48=y
 +CONFIG_SCHED_MC=y
++CONFIG_SCHED_CLUSTER=y
 +CONFIG_NR_CPUS=64
 +CONFIG_NUMA=y
 +CONFIG_HZ_1000=y
