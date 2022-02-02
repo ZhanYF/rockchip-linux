@@ -56,7 +56,7 @@ index 1c725ee..3a1526f 100644
 +obj-$(CONFIG_CHARGER_RK818)	+= rk818_charger.o
 diff --git a/drivers/power/supply/rk818_charger.c b/drivers/power/supply/rk818_charger.c
 new file mode 100644
-index 00000000..097f30b
+index 00000000..7b67a0b
 --- /dev/null
 +++ b/drivers/power/supply/rk818_charger.c
 @@ -0,0 +1,637 @@
@@ -584,7 +584,7 @@ index 00000000..097f30b
 + */
 +static const struct power_supply_desc rk818_charger_desc = {
 +	.name			= "rk818-charger",
-+	.type			= POWER_SUPPLY_TYPE_MAINS,
++	.type			= POWER_SUPPLY_TYPE_BATTERY,
 +	.properties		= rk818_charger_props,
 +	.num_properties		= ARRAY_SIZE(rk818_charger_props),
 +	.property_is_writeable	= rk818_charger_prop_writeable,
