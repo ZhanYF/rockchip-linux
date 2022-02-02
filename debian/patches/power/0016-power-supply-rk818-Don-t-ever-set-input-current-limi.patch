@@ -47,7 +47,7 @@ index 1c5be0d..6f0c08e 100644
  
  int power_supply_set_battery_charged(struct power_supply *psy)
 diff --git a/drivers/power/supply/rk818_charger.c b/drivers/power/supply/rk818_charger.c
-index 097f30b..d4ed7b1 100644
+index 7b67a0b..ba27932 100644
 --- a/drivers/power/supply/rk818_charger.c
 +++ b/drivers/power/supply/rk818_charger.c
 @@ -234,7 +234,7 @@ static void rk818_usb_power_external_power_changed(struct power_supply *psy)
