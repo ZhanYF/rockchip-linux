@@ -14,10 +14,10 @@ Signed-of-by: Kamil Trzciński <ayufan@ayufan.eu>
  1 file changed, 8 insertions(+)
 
 diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-index a9acbcc..53c8b40 100644
+index 4ed7a68..4e82233 100644
 --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-@@ -406,6 +406,14 @@ static int dw_mipi_dsi_phy_init(void *priv_data)
+@@ -408,6 +408,14 @@ static int dw_mipi_dsi_phy_init(void *priv_data)
  	 */
  	vco = (dsi->lane_mbps < 200) ? 0 : (dsi->lane_mbps + 100) / 200;
  
