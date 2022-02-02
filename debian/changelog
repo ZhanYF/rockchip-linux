@@ -1,3 +1,13 @@
+linux-5.16-rockchip (5.16.5+rockchip-10) unstable; urgency=medium
+
+  * d/patches: add SCHED_CLUSTER to defconfig
+  * gitignore: don't ignore debian/quilt/patch files
+  * d/patches: import patches for SPI flash and improving charging
+  * d/patches: rebase on 5.16.5
+  * d/patches: fix compilation and revert power supply type for charger
+
+ -- Arnaud Ferraris <arnaud.ferraris@gmail.com>  Wed, 02 Feb 2022 14:48:58 +0100
+
 linux-5.16-rockchip (5.16.2+rockchip-9) unstable; urgency=medium
 
   * d/patches: update for 5.16.2.
