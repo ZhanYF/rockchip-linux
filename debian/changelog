@@ -1,3 +1,10 @@
+linux-5.16-rockchip (5.16.7+rockchip-11) unstable; urgency=medium
+
+  * d/patches: add keyboard driver and charging fixes.
+  * Rebase on 5.16.7
+
+ -- Arnaud Ferraris <arnaud.ferraris@gmail.com>  Sat, 05 Feb 2022 21:44:08 +0100
+
 linux-5.16-rockchip (5.16.5+rockchip-10) unstable; urgency=medium
 
   * d/patches: add SCHED_CLUSTER to defconfig
