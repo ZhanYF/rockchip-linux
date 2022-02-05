@@ -3,16 +3,16 @@ Date: Mon, 29 Nov 2021 03:27:17 +0100
 Subject: arm64: configs: add rockchip_defconfig
 
 ---
- arch/arm64/configs/rockchip_defconfig | 2500 +++++++++++++++++++++++++++++++++
- 1 file changed, 2500 insertions(+)
+ arch/arm64/configs/rockchip_defconfig | 2502 +++++++++++++++++++++++++++++++++
+ 1 file changed, 2502 insertions(+)
  create mode 100644 arch/arm64/configs/rockchip_defconfig
 
 diff --git a/arch/arm64/configs/rockchip_defconfig b/arch/arm64/configs/rockchip_defconfig
 new file mode 100644
-index 00000000..d8ca952
+index 00000000..84de0c9
 --- /dev/null
 +++ b/arch/arm64/configs/rockchip_defconfig
-@@ -0,0 +1,2500 @@
+@@ -0,0 +1,2502 @@
 +CONFIG_SYSVIPC=y
 +CONFIG_POSIX_MQUEUE=y
 +CONFIG_NO_HZ=y
@@ -1087,6 +1087,7 @@ index 00000000..d8ca952
 +CONFIG_KEYBOARD_GPIO=y
 +CONFIG_KEYBOARD_GPIO_POLLED=m
 +CONFIG_KEYBOARD_MATRIX=m
++CONFIG_KEYBOARD_KB151=m
 +CONFIG_KEYBOARD_LM8323=m
 +CONFIG_KEYBOARD_MAX7359=m
 +CONFIG_KEYBOARD_OPENCORES=m
@@ -1229,6 +1230,7 @@ index 00000000..d8ca952
 +CONFIG_POWER_RESET_SYSCON_POWEROFF=y
 +CONFIG_SYSCON_REBOOT_MODE=m
 +CONFIG_NVMEM_REBOOT_MODE=m
++CONFIG_IP5XXX_POWER=y
 +CONFIG_BATTERY_CW2015=m
 +CONFIG_BATTERY_DS2760=m
 +CONFIG_BATTERY_BQ27XXX=m
