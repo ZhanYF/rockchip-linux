@@ -96,6 +96,7 @@ device-tree/0095-arm64-dts-rk3399-pinephone-pro-Add-support-for-Pinep.patch
 device-tree/0096-arm64-dts-rk3399-pinephone-pro-Don-t-allow-usb2-phy-.patch
 device-tree/0097-arm64-dts-rk3399-pinephone-pro-Magnetometer-is-AF813.patch
 device-tree/0098-arm64-dts-rk3399-pinephone-pro-Add-Pinephone-keyboar.patch
-mobian/0099-arm64-configs-add-rockchip_defconfig.patch
-mobian/0100-builddeb-don-t-build-linux-libc-dev-package.patch
-debian/0101-wireless-add-debian-wireless-regdb-certificates.patch
+device-tree/0099-arm64-dts-rk3399-pinephone-pro-add-near-level-to-pro.patch
+mobian/0100-arm64-configs-add-rockchip_defconfig.patch
+mobian/0101-builddeb-don-t-build-linux-libc-dev-package.patch
+debian/0102-wireless-add-debian-wireless-regdb-certificates.patch
