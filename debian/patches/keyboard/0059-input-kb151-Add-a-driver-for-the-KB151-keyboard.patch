@@ -18,7 +18,7 @@ Signed-off-by: Ondřej Jirman <megi@xff.cz>
  create mode 100644 drivers/input/keyboard/kb151.c
 
 diff --git a/drivers/input/keyboard/Kconfig b/drivers/input/keyboard/Kconfig
-index 0c607da..cdcbf82 100644
+index 9417ee0..a38d3b7 100644
 --- a/drivers/input/keyboard/Kconfig
 +++ b/drivers/input/keyboard/Kconfig
 @@ -353,6 +353,16 @@ config KEYBOARD_HP7XX
