@@ -18,10 +18,10 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  create mode 100644 drivers/gpu/drm/panel/panel-himax-hx8394.c
 
 diff --git a/drivers/gpu/drm/panel/Kconfig b/drivers/gpu/drm/panel/Kconfig
-index 0d379835..c27a7a6 100644
+index 42011d8..df75d56 100644
 --- a/drivers/gpu/drm/panel/Kconfig
 +++ b/drivers/gpu/drm/panel/Kconfig
-@@ -130,6 +130,15 @@ config DRM_PANEL_FEIYANG_FY07024DI26A30D
+@@ -131,6 +131,15 @@ config DRM_PANEL_FEIYANG_FY07024DI26A30D
  	  Say Y if you want to enable support for panels based on the
  	  Feiyang FY07024DI26A30-D MIPI-DSI interface.
  
@@ -48,7 +48,7 @@ index bca4cc1..486926c 100644
 +obj-$(CONFIG_DRM_PANEL_HIMAX_HX8394) += panel-himax-hx8394.o
 diff --git a/drivers/gpu/drm/panel/panel-himax-hx8394.c b/drivers/gpu/drm/panel/panel-himax-hx8394.c
 new file mode 100644
-index 00000000..14659cb
+index 0000000..14659cb
 --- /dev/null
 +++ b/drivers/gpu/drm/panel/panel-himax-hx8394.c
 @@ -0,0 +1,410 @@
