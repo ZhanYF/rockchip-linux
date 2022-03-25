@@ -1,8 +1,9 @@
-linux-5.16-rockchip (5.16.17+rockchip-1) UNRELEASED; urgency=medium
+linux-5.16-rockchip (5.16.17+rockchip-14) unstable; urgency=medium
 
   * d/patches: rebase on v5.16.17
+  * d/patches: fix the USB-C DP out fix
 
- -- Mobot <invalid@mobian.org>  Thu, 24 Mar 2022 04:26:03 +0000
+ -- Arnaud Ferraris <arnaud.ferraris@collabora.com>  Fri, 25 Mar 2022 12:32:03 +0100
 
 linux-5.16-rockchip (5.16.16+rockchip-13) unstable; urgency=medium
 
