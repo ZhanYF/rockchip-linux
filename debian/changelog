@@ -1,3 +1,15 @@
+linux-5.17-rockchip (5.17.2+rockchip-2) unstable; urgency=medium
+
+  * Rebase on 5.17.2
+  * d/patches: properly configure ALS interrupt pin
+  * d/patches: import new patches for rk818 and keyboard case.
+    As the keyboard case charger chip driver has been upstreamed and the
+    keyboard driver has been submitted, update our patches with those
+    versions. This commit also adds a patch for the PPP PMIC.
+  * d/patches: export "near level" DT property for proximity sensor
+
+ -- Arnaud Ferraris <arnaud.ferraris@collabora.com>  Mon, 11 Apr 2022 14:43:37 +0200
+
 linux-5.17-rockchip (5.17.1+rockchip-1) unstable; urgency=medium
 
   * Initial 5.17 release
