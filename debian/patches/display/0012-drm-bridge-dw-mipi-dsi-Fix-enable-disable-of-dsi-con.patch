@@ -33,7 +33,7 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  1 file changed, 32 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi.c b/drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi.c
-index e44e18a..9cce2ab 100644
+index 56c3fd0..26d771a 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi.c
 @@ -266,6 +266,7 @@ struct dw_mipi_dsi {
