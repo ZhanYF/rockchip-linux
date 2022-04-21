@@ -8,20 +8,20 @@ less. This also makes writing a power manager for the keyboard easier.
 
 Signed-off-by: Ondrej Jirman <megi@xff.cz>
 ---
- drivers/power/supply/Kconfig         |  8 ----
+ drivers/power/supply/Kconfig         |  7 ----
  drivers/power/supply/Makefile        |  3 +-
  drivers/power/supply/rk818_battery.c | 38 ++++++++++++++----
  drivers/power/supply/rk818_charger.c | 75 ++++++++++++++++++++++++++++++------
- 4 files changed, 94 insertions(+), 30 deletions(-)
+ 4 files changed, 94 insertions(+), 29 deletions(-)
 
 diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
-index ff7a1fe..3e093f7 100644
+index 23158c1..82c06c0 100644
 --- a/drivers/power/supply/Kconfig
 +++ b/drivers/power/supply/Kconfig
-@@ -866,14 +866,6 @@ config CHARGER_SURFACE
- 	  Microsoft Surface devices, i.e. Surface Pro 7, Surface Laptop 3,
- 	  Surface Book 3, and Surface Laptop Go.
- 
+@@ -896,13 +896,6 @@ config BATTERY_UG3105
+ 	  Since Linux does not monitor coulomb-counter changes while the
+ 	  device is off or suspended, the functionality of this driver is
+ 	  limited to reporting capacity only.
 -config BATTERY_RK818
 -	bool "RK818 Battery driver"
 -	depends on MFD_RK808
@@ -29,18 +29,17 @@ index ff7a1fe..3e093f7 100644
 -	help
 -	  If you say yes here you will get support for the battery of RK818 PMIC.
 -	  This driver can give support for Rk818 Battery Charge Interface.
--
+ 
  config CHARGER_RK818
  	bool "RK818 Charger driver"
- 	depends on MFD_RK808
 diff --git a/drivers/power/supply/Makefile b/drivers/power/supply/Makefile
-index 0e1170a..ee20f0e 100644
+index 9856944..e080b96 100644
 --- a/drivers/power/supply/Makefile
 +++ b/drivers/power/supply/Makefile
-@@ -105,5 +105,4 @@ obj-$(CONFIG_RN5T618_POWER)	+= rn5t618_power.o
- obj-$(CONFIG_BATTERY_ACER_A500)	+= acer_a500_battery.o
+@@ -108,5 +108,4 @@ obj-$(CONFIG_BATTERY_ACER_A500)	+= acer_a500_battery.o
  obj-$(CONFIG_BATTERY_SURFACE)	+= surface_battery.o
  obj-$(CONFIG_CHARGER_SURFACE)	+= surface_charger.o
+ obj-$(CONFIG_BATTERY_UG3105)	+= ug3105_battery.o
 -obj-$(CONFIG_BATTERY_RK818)	+= rk818_battery.o
 -obj-$(CONFIG_CHARGER_RK818)	+= rk818_charger.o
 +obj-$(CONFIG_CHARGER_RK818)	+= rk818_charger.o rk818_battery.o
@@ -143,10 +142,10 @@ index 741195e..0e31878 100644
  }
  
 diff --git a/drivers/power/supply/rk818_charger.c b/drivers/power/supply/rk818_charger.c
-index ba27932..e72dab9 100644
+index 00fe5d8..a9eb964 100644
 --- a/drivers/power/supply/rk818_charger.c
 +++ b/drivers/power/supply/rk818_charger.c
-@@ -342,14 +342,36 @@ static int rk818_charger_get_voltage_max(struct rk818_charger *cg, int *val)
+@@ -355,14 +355,36 @@ static int rk818_charger_get_voltage_max(struct rk818_charger *cg, int *val)
  	return 0;
  }
  
@@ -183,7 +182,7 @@ index ba27932..e72dab9 100644
  	switch (psp) {
  	case POWER_SUPPLY_PROP_ONLINE:
  		ret = regmap_read(cg->regmap, RK818_CHRG_CTRL_REG1, &reg);
-@@ -361,6 +383,20 @@ static int rk818_charger_get_property(struct power_supply *psy,
+@@ -374,6 +396,20 @@ static int rk818_charger_get_property(struct power_supply *psy,
  		val->intval = !!(reg & RK818_CHRG_CTRL_REG1_CHRG_EN);
  		break;
  
@@ -204,7 +203,7 @@ index ba27932..e72dab9 100644
  	case POWER_SUPPLY_PROP_STATUS:
  		ret = regmap_read(cg->regmap, RK818_SUP_STS_REG, &reg);
  		if (ret)
-@@ -467,14 +503,20 @@ static int rk818_charger_set_property(struct power_supply *psy,
+@@ -480,14 +516,20 @@ static int rk818_charger_set_property(struct power_supply *psy,
  	int ret;
  
  	switch (psp) {
@@ -231,7 +230,7 @@ index ba27932..e72dab9 100644
  
  	case POWER_SUPPLY_PROP_CONSTANT_CHARGE_VOLTAGE:
                  return rk818_charger_set_voltage_max(cg, val->intval);
-@@ -493,7 +535,7 @@ static int rk818_charger_prop_writeable(struct power_supply *psy,
+@@ -506,7 +548,7 @@ static int rk818_charger_prop_writeable(struct power_supply *psy,
  	switch (psp) {
  	case POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT:
  	case POWER_SUPPLY_PROP_CONSTANT_CHARGE_VOLTAGE:
@@ -240,7 +239,7 @@ index ba27932..e72dab9 100644
  		return 1;
  
  	default:
-@@ -505,6 +547,7 @@ static enum power_supply_property rk818_charger_props[] = {
+@@ -518,6 +560,7 @@ static enum power_supply_property rk818_charger_props[] = {
  	POWER_SUPPLY_PROP_ONLINE,
  	POWER_SUPPLY_PROP_HEALTH,
  	POWER_SUPPLY_PROP_STATUS,
@@ -248,7 +247,7 @@ index ba27932..e72dab9 100644
  	POWER_SUPPLY_PROP_CHARGE_TYPE,
  	POWER_SUPPLY_PROP_CHARGE_TERM_CURRENT,
  	POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT,
-@@ -512,16 +555,24 @@ static enum power_supply_property rk818_charger_props[] = {
+@@ -525,16 +568,24 @@ static enum power_supply_property rk818_charger_props[] = {
  	POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT_MAX,
  	POWER_SUPPLY_PROP_CONSTANT_CHARGE_VOLTAGE_MAX,
  	POWER_SUPPLY_PROP_PRECHARGE_CURRENT,

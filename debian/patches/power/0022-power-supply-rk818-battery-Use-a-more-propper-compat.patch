@@ -12,10 +12,10 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/mfd/rk808.c b/drivers/mfd/rk808.c
-index 7d1f000..a99fec0 100644
+index 5c58529..0db35d3 100644
 --- a/drivers/mfd/rk808.c
 +++ b/drivers/mfd/rk808.c
-@@ -205,7 +205,7 @@ static const struct mfd_cell rk817s[] = {
+@@ -206,7 +206,7 @@ static const struct mfd_cell rk817s[] = {
  static const struct mfd_cell rk818s[] = {
  	{ .name = "rk808-clkout", },
  	{ .name = "rk808-regulator", },
