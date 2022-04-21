@@ -11,12 +11,12 @@ one-to-many in the following patch.
 Signed-off-by: Bjorn Andersson <bjorn.andersson@linaro.org>
 ---
  drivers/usb/typec/bus.c               |   2 +-
- drivers/usb/typec/mux.c               | 189 +++++++++++++++++++++-------------
+ drivers/usb/typec/mux.c               | 193 +++++++++++++++++++++-------------
  drivers/usb/typec/mux.h               |  12 +--
  drivers/usb/typec/mux/intel_pmc_mux.c |   8 +-
  drivers/usb/typec/mux/pi3usb30532.c   |   8 +-
  include/linux/usb/typec_mux.h         |  22 ++--
- 6 files changed, 146 insertions(+), 95 deletions(-)
+ 6 files changed, 148 insertions(+), 97 deletions(-)
 
 diff --git a/drivers/usb/typec/bus.c b/drivers/usb/typec/bus.c
 index 78e0e78..26ea2fd 100644
@@ -32,7 +32,7 @@ index 78e0e78..26ea2fd 100644
  
  static int typec_altmode_set_state(struct typec_altmode *adev,
 diff --git a/drivers/usb/typec/mux.c b/drivers/usb/typec/mux.c
-index c8340de0..d0b42c2 100644
+index d2aaf29..bb6c095 100644
 --- a/drivers/usb/typec/mux.c
 +++ b/drivers/usb/typec/mux.c
 @@ -17,9 +17,13 @@
@@ -115,7 +115,7 @@ index c8340de0..d0b42c2 100644
  }
  
  const struct device_type typec_switch_dev_type = {
-@@ -109,82 +130,90 @@ const struct device_type typec_switch_dev_type = {
+@@ -109,85 +130,93 @@ const struct device_type typec_switch_dev_type = {
   * connector to the USB controllers. USB Type-C plugs can be inserted
   * right-side-up or upside-down.
   */
@@ -146,15 +146,19 @@ index c8340de0..d0b42c2 100644
 -	sw->dev.class = &typec_mux_class;
 -	sw->dev.type = &typec_switch_dev_type;
 -	sw->dev.driver_data = desc->drvdata;
--	dev_set_name(&sw->dev, "%s-switch",
+-	ret = dev_set_name(&sw->dev, "%s-switch", desc->name ? desc->name : dev_name(parent));
 +	device_initialize(&sw_dev->dev);
 +	sw_dev->dev.parent = parent;
 +	sw_dev->dev.fwnode = desc->fwnode;
 +	sw_dev->dev.class = &typec_mux_class;
 +	sw_dev->dev.type = &typec_switch_dev_type;
 +	sw_dev->dev.driver_data = desc->drvdata;
-+	dev_set_name(&sw_dev->dev, "%s-switch",
- 		     desc->name ? desc->name : dev_name(parent));
++	ret = dev_set_name(&sw_dev->dev, "%s-switch", desc->name ? desc->name : dev_name(parent));
+ 	if (ret) {
+-		put_device(&sw->dev);
++		put_device(&sw_dev->dev);
+ 		return ERR_PTR(ret);
+ 	}
  
 -	ret = device_add(&sw->dev);
 +	ret = device_add(&sw_dev->dev);
@@ -231,7 +235,7 @@ index c8340de0..d0b42c2 100644
  		return 0;
  
  	return dev_fwnode(dev) == fwnode;
-@@ -246,7 +275,7 @@ static void *typec_mux_match(struct fwnode_handle *fwnode, const char *id,
+@@ -249,7 +278,7 @@ static void *typec_mux_match(struct fwnode_handle *fwnode, const char *id,
  	dev = class_find_device(&typec_mux_class, NULL, fwnode,
  				mux_fwnode_match);
  
@@ -240,7 +244,7 @@ index c8340de0..d0b42c2 100644
  }
  
  /**
-@@ -262,12 +291,23 @@ static void *typec_mux_match(struct fwnode_handle *fwnode, const char *id,
+@@ -265,12 +294,23 @@ static void *typec_mux_match(struct fwnode_handle *fwnode, const char *id,
  struct typec_mux *fwnode_typec_mux_get(struct fwnode_handle *fwnode,
  				       const struct typec_altmode_desc *desc)
  {
@@ -268,7 +272,7 @@ index c8340de0..d0b42c2 100644
  
  	return mux;
  }
-@@ -281,25 +321,34 @@ EXPORT_SYMBOL_GPL(fwnode_typec_mux_get);
+@@ -284,25 +324,34 @@ EXPORT_SYMBOL_GPL(fwnode_typec_mux_get);
   */
  void typec_mux_put(struct typec_mux *mux)
  {
@@ -309,7 +313,7 @@ index c8340de0..d0b42c2 100644
  }
  
  const struct device_type typec_mux_dev_type = {
-@@ -317,63 +366,63 @@ const struct device_type typec_mux_dev_type = {
+@@ -320,66 +369,66 @@ const struct device_type typec_mux_dev_type = {
   * the pins on the connector need to be reconfigured. This function registers
   * multiplexer switches routing the pins on the connector.
   */
@@ -339,15 +343,19 @@ index c8340de0..d0b42c2 100644
 -	mux->dev.class = &typec_mux_class;
 -	mux->dev.type = &typec_mux_dev_type;
 -	mux->dev.driver_data = desc->drvdata;
--	dev_set_name(&mux->dev, "%s-mux",
+-	ret = dev_set_name(&mux->dev, "%s-mux", desc->name ? desc->name : dev_name(parent));
 +	device_initialize(&mux_dev->dev);
 +	mux_dev->dev.parent = parent;
 +	mux_dev->dev.fwnode = desc->fwnode;
 +	mux_dev->dev.class = &typec_mux_class;
 +	mux_dev->dev.type = &typec_mux_dev_type;
 +	mux_dev->dev.driver_data = desc->drvdata;
-+	dev_set_name(&mux_dev->dev, "%s-mux",
- 		     desc->name ? desc->name : dev_name(parent));
++	ret = dev_set_name(&mux_dev->dev, "%s-mux", desc->name ? desc->name : dev_name(parent));
+ 	if (ret) {
+-		put_device(&mux->dev);
++		put_device(&mux_dev->dev);
+ 		return ERR_PTR(ret);
+ 	}
  
 -	ret = device_add(&mux->dev);
 +	ret = device_add(&mux_dev->dev);
