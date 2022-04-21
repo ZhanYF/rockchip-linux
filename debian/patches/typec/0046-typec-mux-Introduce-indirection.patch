@@ -32,7 +32,7 @@ index 78e0e78..26ea2fd 100644
  
  static int typec_altmode_set_state(struct typec_altmode *adev,
 diff --git a/drivers/usb/typec/mux.c b/drivers/usb/typec/mux.c
-index c8340de0..d0b42c2 100644
+index c8340de..d0b42c2 100644
 --- a/drivers/usb/typec/mux.c
 +++ b/drivers/usb/typec/mux.c
 @@ -17,9 +17,13 @@
