@@ -15,7 +15,7 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  4 files changed, 94 insertions(+), 30 deletions(-)
 
 diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
-index ff7a1fe..3e093f7 100644
+index bf26f23..3075808 100644
 --- a/drivers/power/supply/Kconfig
 +++ b/drivers/power/supply/Kconfig
 @@ -866,14 +866,6 @@ config CHARGER_SURFACE
