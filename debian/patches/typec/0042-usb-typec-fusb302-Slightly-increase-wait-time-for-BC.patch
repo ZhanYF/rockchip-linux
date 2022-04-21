@@ -12,7 +12,7 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
-index 011dce5..5743e63 100644
+index b37ae9b..35bac32 100644
 --- a/drivers/usb/typec/tcpm/fusb302.c
 +++ b/drivers/usb/typec/tcpm/fusb302.c
 @@ -533,9 +533,9 @@ static int tcpm_get_current_limit(struct tcpc_dev *dev)

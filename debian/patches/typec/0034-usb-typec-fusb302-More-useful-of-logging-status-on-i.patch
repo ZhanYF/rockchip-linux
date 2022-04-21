@@ -12,7 +12,7 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  1 file changed, 104 insertions(+), 17 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
-index 7386805..70b0e15 100644
+index e3b9e0e..022a6c1 100644
 --- a/drivers/usb/typec/tcpm/fusb302.c
 +++ b/drivers/usb/typec/tcpm/fusb302.c
 @@ -68,7 +68,7 @@ static const u8 rd_mda_value[] = {

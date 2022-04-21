@@ -14,7 +14,7 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  1 file changed, 23 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-index acc4a95..273ce9d 100644
+index cb47bd1..082e8b6 100644
 --- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
 +++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
 @@ -517,21 +517,27 @@ static const struct phy_ops rockchip_usb2phy_ops = {
