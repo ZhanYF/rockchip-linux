@@ -15,10 +15,10 @@ Signed-off-by: Samuel Holland <samuel@sholland.org>
  create mode 100644 drivers/input/keyboard/pinephone-keyboard.c
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 6f2b899..e8264dd 100644
+index f468864..425e7d5 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -15351,6 +15351,12 @@ S:	Maintained
+@@ -15659,6 +15659,12 @@ S:	Maintained
  F:	Documentation/devicetree/bindings/iio/chemical/plantower,pms7003.yaml
  F:	drivers/iio/chemical/pms7003.c
  
@@ -32,10 +32,10 @@ index 6f2b899..e8264dd 100644
  M:	Jacob Keller <jacob.e.keller@intel.com>
  S:	Maintained
 diff --git a/drivers/input/keyboard/Kconfig b/drivers/input/keyboard/Kconfig
-index 9417ee0..dae8b65 100644
+index 4ea79db..8439b38 100644
 --- a/drivers/input/keyboard/Kconfig
 +++ b/drivers/input/keyboard/Kconfig
-@@ -523,6 +523,16 @@ config KEYBOARD_OPENCORES
+@@ -524,6 +524,16 @@ config KEYBOARD_OPENCORES
  	  To compile this driver as a module, choose M here; the
  	  module will be called opencores-kbd.
  
@@ -53,10 +53,10 @@ index 9417ee0..dae8b65 100644
  	tristate "PXA27x/PXA3xx keypad support"
  	depends on PXA27x || PXA3xx || ARCH_MMP
 diff --git a/drivers/input/keyboard/Makefile b/drivers/input/keyboard/Makefile
-index e3c8648..84da37e 100644
+index 721936e..5f67196 100644
 --- a/drivers/input/keyboard/Makefile
 +++ b/drivers/input/keyboard/Makefile
-@@ -51,6 +51,7 @@ obj-$(CONFIG_KEYBOARD_NSPIRE)		+= nspire-keypad.o
+@@ -52,6 +52,7 @@ obj-$(CONFIG_KEYBOARD_NSPIRE)		+= nspire-keypad.o
  obj-$(CONFIG_KEYBOARD_OMAP)		+= omap-keypad.o
  obj-$(CONFIG_KEYBOARD_OMAP4)		+= omap4-keypad.o
  obj-$(CONFIG_KEYBOARD_OPENCORES)	+= opencores-kbd.o
