@@ -12,10 +12,10 @@ Signed-off-by: Bjorn Andersson <bjorn.andersson@linaro.org>
  1 file changed, 5 insertions(+), 50 deletions(-)
 
 diff --git a/drivers/base/property.c b/drivers/base/property.c
-index 64d9805..dfdf716 100644
+index 5a82ee1..d22023a 100644
 --- a/drivers/base/property.c
 +++ b/drivers/base/property.c
-@@ -1164,31 +1164,6 @@ const void *device_get_match_data(struct device *dev)
+@@ -1206,31 +1206,6 @@ const void *device_get_match_data(struct device *dev)
  }
  EXPORT_SYMBOL_GPL(device_get_match_data);
  
@@ -47,7 +47,7 @@ index 64d9805..dfdf716 100644
  static unsigned int fwnode_graph_devcon_matches(struct fwnode_handle *fwnode,
  						const char *con_id, void *data,
  						devcon_match_fn_t match,
-@@ -1221,28 +1196,6 @@ static unsigned int fwnode_graph_devcon_matches(struct fwnode_handle *fwnode,
+@@ -1263,28 +1238,6 @@ static unsigned int fwnode_graph_devcon_matches(struct fwnode_handle *fwnode,
  	return count;
  }
  
@@ -76,7 +76,7 @@ index 64d9805..dfdf716 100644
  static unsigned int fwnode_devcon_matches(struct fwnode_handle *fwnode,
  					  const char *con_id, void *data,
  					  devcon_match_fn_t match,
-@@ -1287,16 +1240,18 @@ void *fwnode_connection_find_match(struct fwnode_handle *fwnode,
+@@ -1329,16 +1282,18 @@ void *fwnode_connection_find_match(struct fwnode_handle *fwnode,
  				   const char *con_id, void *data,
  				   devcon_match_fn_t match)
  {
