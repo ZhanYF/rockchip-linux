@@ -35,7 +35,7 @@ index d9b2f17..6f2b899 100644
  M:	Jan Kara <jack@suse.cz>
  R:	Amir Goldstein <amir73il@gmail.com>
 diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
-index 3e093f7..0ab5e88 100644
+index 3075808..57d8517 100644
 --- a/drivers/power/supply/Kconfig
 +++ b/drivers/power/supply/Kconfig
 @@ -51,6 +51,14 @@ config GENERIC_ADC_BATTERY
@@ -67,7 +67,7 @@ index ee20f0e..37aeffa 100644
  obj-$(CONFIG_WM831X_POWER)	+= wm831x_power.o
 diff --git a/drivers/power/supply/ip5xxx_power.c b/drivers/power/supply/ip5xxx_power.c
 new file mode 100644
-index 00000000..218e8e6
+index 0000000..218e8e6
 --- /dev/null
 +++ b/drivers/power/supply/ip5xxx_power.c
 @@ -0,0 +1,638 @@

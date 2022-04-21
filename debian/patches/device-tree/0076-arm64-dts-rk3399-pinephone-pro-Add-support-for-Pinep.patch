@@ -30,7 +30,7 @@ index 479906f..a5a0eca 100644
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-roc-pc-mezzanine.dtb
 diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 new file mode 100644
-index 00000000..b53df0d
+index 0000000..b53df0d
 --- /dev/null
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 @@ -0,0 +1,1037 @@
