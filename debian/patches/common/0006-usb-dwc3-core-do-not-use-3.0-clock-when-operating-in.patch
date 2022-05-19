@@ -17,10 +17,10 @@ Signed-off-by: Peter Geis <pgwipeout@gmail.com>
  2 files changed, 5 insertions(+)
 
 diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
-index f4c0995..f7eb139 100644
+index f9cdfd9..f1f4154 100644
 --- a/drivers/usb/dwc3/core.c
 +++ b/drivers/usb/dwc3/core.c
-@@ -1088,6 +1088,10 @@ static int dwc3_core_init(struct dwc3 *dwc)
+@@ -1089,6 +1089,10 @@ static int dwc3_core_init(struct dwc3 *dwc)
  		if (dwc->parkmode_disable_ss_quirk)
  			reg |= DWC3_GUCTL1_PARKMODE_DISABLE_SS;
  

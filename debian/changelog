@@ -1,3 +1,9 @@
+linux-5.17-rockchip (5.17.9+rockchip-1) UNRELEASED; urgency=medium
+
+  * d/patches: rebase on 5.17.9
+
+ -- Mobot <invalid@mobian.org>  Thu, 19 May 2022 04:06:47 +0000
+
 linux-5.17-rockchip (5.17.5+rockchip-4) unstable; urgency=medium
 
   * d/patches: rebase on 5.17.5
