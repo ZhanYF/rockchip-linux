@@ -9,10 +9,10 @@ otherwise it seems to fit neatly in the gigadevice list.
  1 file changed, 4 insertions(+)
 
 diff --git a/drivers/mtd/spi-nor/gigadevice.c b/drivers/mtd/spi-nor/gigadevice.c
-index 0807d02..21c7dc1 100644
+index 119b38e..a5222d5 100644
 --- a/drivers/mtd/spi-nor/gigadevice.c
 +++ b/drivers/mtd/spi-nor/gigadevice.c
-@@ -48,6 +48,10 @@ static const struct flash_info gigadevice_parts[] = {
+@@ -48,6 +48,10 @@ static const struct flash_info gigadevice_nor_parts[] = {
  		FLAGS(SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
  		NO_SFDP_FLAGS(SECT_4K | SPI_NOR_DUAL_READ |
  			      SPI_NOR_QUAD_READ) },

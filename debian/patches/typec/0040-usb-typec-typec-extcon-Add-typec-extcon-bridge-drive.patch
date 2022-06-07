@@ -9,43 +9,42 @@ drivers controlled via extcon interface.
 
 Signed-off-by: Ondrej Jirman <megous@megous.com>
 ---
- drivers/usb/typec/Kconfig        |   7 +
+ drivers/usb/typec/Kconfig        |   6 +
  drivers/usb/typec/Makefile       |   1 +
  drivers/usb/typec/typec-extcon.c | 337 +++++++++++++++++++++++++++++++++++++++
- 3 files changed, 345 insertions(+)
+ 3 files changed, 344 insertions(+)
  create mode 100644 drivers/usb/typec/typec-extcon.c
 
 diff --git a/drivers/usb/typec/Kconfig b/drivers/usb/typec/Kconfig
-index ab480f3..01ecc5e 100644
+index ba24847..2f19943 100644
 --- a/drivers/usb/typec/Kconfig
 +++ b/drivers/usb/typec/Kconfig
-@@ -88,6 +88,13 @@ config TYPEC_QCOM_PMIC
- 	  It will also enable the VBUS output to connected devices when a
- 	  DFP connection is made.
+@@ -110,6 +110,12 @@ config TYPEC_WUSB3801
  
+ 	  If you choose to build this driver as a dynamically linked module, the
+ 	  module will be called wusb3801.ko.
 +config TYPEC_EXTCON
 +	tristate "Type-C switch/mux -> extcon interface bridge driver"
 +	depends on USB_ROLE_SWITCH
 +	help
 +	  Say Y or M here if your system needs bridging between typec class
 +	  and extcon interfaces.
-+
+ 
  source "drivers/usb/typec/mux/Kconfig"
  
- source "drivers/usb/typec/altmodes/Kconfig"
 diff --git a/drivers/usb/typec/Makefile b/drivers/usb/typec/Makefile
-index 57870a2..23c812e 100644
+index 43626ac..cf1182e 100644
 --- a/drivers/usb/typec/Makefile
 +++ b/drivers/usb/typec/Makefile
-@@ -9,4 +9,5 @@ obj-$(CONFIG_TYPEC_TPS6598X)	+= tipd/
- obj-$(CONFIG_TYPEC_HD3SS3220)	+= hd3ss3220.o
- obj-$(CONFIG_TYPEC_QCOM_PMIC)	+= qcom-pmic-typec.o
+@@ -11,4 +11,5 @@ obj-$(CONFIG_TYPEC_QCOM_PMIC)	+= qcom-pmic-typec.o
  obj-$(CONFIG_TYPEC_STUSB160X) 	+= stusb160x.o
+ obj-$(CONFIG_TYPEC_RT1719)	+= rt1719.o
+ obj-$(CONFIG_TYPEC_WUSB3801)	+= wusb3801.o
 +obj-$(CONFIG_TYPEC_EXTCON)	+= typec-extcon.o
  obj-$(CONFIG_TYPEC)		+= mux/
 diff --git a/drivers/usb/typec/typec-extcon.c b/drivers/usb/typec/typec-extcon.c
 new file mode 100644
-index 0000000..143ff24
+index 00000000..143ff24
 --- /dev/null
 +++ b/drivers/usb/typec/typec-extcon.c
 @@ -0,0 +1,337 @@

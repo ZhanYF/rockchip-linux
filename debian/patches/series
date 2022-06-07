@@ -3,14 +3,13 @@ common/0002-clk-rk3399-Export-SCLK_CIF_OUT_SRC-to-device-tree.patch
 common/0003-mtd-spi-nor-gigadevice-add-support-for-gd25lq128e.patch
 common/0004-media-rockchip-rga-Fix-probe-bugs.patch
 common/0005-mmc-dw-mmc-rockchip-fix-sdmmc-after-soft-reboot.patch
-common/0006-usb-dwc3-core-do-not-use-3.0-clock-when-operating-in.patch
 common/0007-pinctrl-rockchip-support-deferring-other-gpio-params.patch
 common/0008-pinctrl-rockchip-support-setting-input-enable-param.patch
 common/0009-gpio-rockchip-handle-deferring-input-enable-pinconfs.patch
 common/0010-arm64-dts-rockchip-rk3399-add-an-input-enable-pincon.patch
 common/0011-iio-stk3310-Export-near-level-property-for-proximity.patch
 display/0012-drm-dw-mipi-dsi-rockchip-Ensure-that-lane-is-properl.patch
-display/0013-drm-bridge-dw-mipi-dsi-Fix-enable-disable-of-dsi-con.patch
+0012-drm-bridge-dw-mipi-dsi-Fix-enable-disable-of-dsi-con.patch
 display/0014-drm-dw-mipi-dsi-rockchip-Never-allow-lane-bandwidth-.patch
 display/0015-drm-rockchip-cdn-dp-Disable-CDN-DP-on-disconnect.patch
 display/0016-drm-panel-hx8394-Add-driver-for-HX8394-based-HannSta.patch
@@ -20,12 +19,9 @@ display/0019-video-fbdev-Add-events-for-early-fb-event-support.patch
 power/0020-power-rk818-Configure-rk808-clkout2-function.patch
 power/0021-power-rk818-battery-Add-battery-driver-for-RK818.patch
 power/0022-power-supply-rk818-battery-Use-a-more-propper-compat.patch
-power/0023-power-supply-core-Don-t-ignore-max_current-of-0-when.patch
-power/0024-power-supply-rk818-charger-Implement-charger-driver-.patch
+0022-power-supply-rk818-charger-Implement-charger-driver-.patch
 power/0025-power-supply-rk818-battery-Report-charging-status-ba.patch
-power/0026-power-supply-rk818-Don-t-ever-set-input-current-limi.patch
 power/0027-phy-phy-rockchip-inno-usb2-Decrease-delay-between-po.patch
-power/0028-mfd-rk808-add-reboot-support-to-rk808.c.patch
 power/0029-phy-rockchip-inno-usb2-More-robust-charger-detection.patch
 power/0030-power-supply-rk818-charger-Unify-rk818-charger-and-r.patch
 typec/0031-usb-typec-fusb302-Set-the-current-before-enabling-pu.patch
@@ -56,7 +52,6 @@ touchscreen/0055-input-goodix-Add-option-to-power-off-the-controller-.patch
 touchscreen/0056-input-goodix-Don-t-disable-regulators-during-suspend.patch
 touchscreen/0057-input-touchscreen-goodix-Respect-IRQ-flags-from-DT-w.patch
 touchscreen/0058-input-touchscreen-goodix-Add-support-for-GT1158.patch
-keyboard/0059-power-supply-Add-a-driver-for-Injoinic-power-bank-IC.patch
 keyboard/0060-power-supply-ip5xxx-Report-remaining-battery-capacit.patch
 keyboard/0061-power-supply-ip5xxx-Modify-initial-configuration.patch
 keyboard/0062-power-supply-ip5xxx-Add-boost-status-property.patch

@@ -8,7 +8,7 @@ Signed-off-by: Arnaud Ferraris <arnaud.ferraris@collabora.com>
  1 file changed, 26 insertions(+)
 
 diff --git a/drivers/iio/light/stk3310.c b/drivers/iio/light/stk3310.c
-index fc63856..78110e7 100644
+index 1d02dfb..7792456 100644
 --- a/drivers/iio/light/stk3310.c
 +++ b/drivers/iio/light/stk3310.c
 @@ -106,6 +106,7 @@ struct stk3310_data {
