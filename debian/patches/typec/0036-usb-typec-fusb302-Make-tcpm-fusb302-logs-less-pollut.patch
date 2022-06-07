@@ -77,7 +77,7 @@ index 1d5affa..ae3b930 100644
  	/*
  	 * Check if we've read off a GoodCRC message. If so then indicate to
 diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-index 5fce795..3d9f125 100644
+index 3bc2f4e..86f7165 100644
 --- a/drivers/usb/typec/tcpm/tcpm.c
 +++ b/drivers/usb/typec/tcpm/tcpm.c
 @@ -776,7 +776,7 @@ static void tcpm_debugfs_exit(const struct tcpm_port *port) { }

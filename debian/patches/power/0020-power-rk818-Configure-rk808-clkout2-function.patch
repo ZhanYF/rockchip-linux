@@ -14,10 +14,10 @@ Signed-of-by: Kamil Trzciński <ayufan@ayufan.eu>
  2 files changed, 3 insertions(+)
 
 diff --git a/drivers/mfd/rk808.c b/drivers/mfd/rk808.c
-index b181fe4..1a6857e 100644
+index 4142b63..c5f7b11 100644
 --- a/drivers/mfd/rk808.c
 +++ b/drivers/mfd/rk808.c
-@@ -303,6 +303,7 @@ static const struct rk808_reg_data rk818_pre_init_reg[] = {
+@@ -304,6 +304,7 @@ static const struct rk808_reg_data rk818_pre_init_reg[] = {
  	{ RK818_H5V_EN_REG,	  BIT(0),	    RK818_H5V_EN },
  	{ RK808_VB_MON_REG,	  MASK_ALL,	    VB_LO_ACT |
  						    VB_LO_SEL_3500MV },
@@ -26,10 +26,10 @@ index b181fe4..1a6857e 100644
  
  static const struct regmap_irq rk805_irqs[] = {
 diff --git a/include/linux/mfd/rk808.h b/include/linux/mfd/rk808.h
-index a96e6d4..2ec0520 100644
+index 5860203..fc72ca4 100644
 --- a/include/linux/mfd/rk808.h
 +++ b/include/linux/mfd/rk808.h
-@@ -381,6 +381,8 @@ enum rk805_reg {
+@@ -382,6 +382,8 @@ enum rk805_reg {
  
  #define VOUT_LO_INT	BIT(0)
  #define CLK32KOUT2_EN	BIT(0)

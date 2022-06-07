@@ -10,20 +10,20 @@ This is forward ported driver from Rockchip BSP.
 Signed-of-by: Kamil Trzciński <ayufan@ayufan.eu>
 ---
  drivers/mfd/rk808.c                  |   40 +-
- drivers/power/supply/Kconfig         |    8 +
+ drivers/power/supply/Kconfig         |    7 +
  drivers/power/supply/Makefile        |    1 +
  drivers/power/supply/rk818_battery.c | 3568 ++++++++++++++++++++++++++++++++++
  drivers/power/supply/rk818_battery.h |  168 ++
  include/linux/mfd/rk808.h            |   81 +-
- 6 files changed, 3863 insertions(+), 3 deletions(-)
+ 6 files changed, 3862 insertions(+), 3 deletions(-)
  create mode 100644 drivers/power/supply/rk818_battery.c
  create mode 100644 drivers/power/supply/rk818_battery.h
 
 diff --git a/drivers/mfd/rk808.c b/drivers/mfd/rk808.c
-index 1a6857e..7d1f000 100644
+index c5f7b11..5c58529 100644
 --- a/drivers/mfd/rk808.c
 +++ b/drivers/mfd/rk808.c
-@@ -76,12 +76,47 @@ static bool rk817_is_volatile_reg(struct device *dev, unsigned int reg)
+@@ -77,12 +77,47 @@ static bool rk817_is_volatile_reg(struct device *dev, unsigned int reg)
  	return true;
  }
  
@@ -73,7 +73,7 @@ index 1a6857e..7d1f000 100644
  };
  
  static const struct regmap_config rk805_regmap_config = {
-@@ -170,6 +205,7 @@ static const struct mfd_cell rk817s[] = {
+@@ -171,6 +206,7 @@ static const struct mfd_cell rk817s[] = {
  static const struct mfd_cell rk818s[] = {
  	{ .name = "rk808-clkout", },
  	{ .name = "rk808-regulator", },
@@ -82,13 +82,13 @@ index 1a6857e..7d1f000 100644
  		.name = "rk808-rtc",
  		.num_resources = ARRAY_SIZE(rtc_resources),
 diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
-index 5e4a693..75d6690 100644
+index 1aa8323..15f70c5 100644
 --- a/drivers/power/supply/Kconfig
 +++ b/drivers/power/supply/Kconfig
-@@ -866,4 +866,12 @@ config CHARGER_SURFACE
- 	  Microsoft Surface devices, i.e. Surface Pro 7, Surface Laptop 3,
- 	  Surface Book 3, and Surface Laptop Go.
- 
+@@ -896,5 +896,12 @@ config BATTERY_UG3105
+ 	  Since Linux does not monitor coulomb-counter changes while the
+ 	  device is off or suspended, the functionality of this driver is
+ 	  limited to reporting capacity only.
 +config BATTERY_RK818
 +	bool "RK818 Battery driver"
 +	depends on MFD_RK808
@@ -96,20 +96,20 @@ index 5e4a693..75d6690 100644
 +	help
 +	  If you say yes here you will get support for the battery of RK818 PMIC.
 +	  This driver can give support for Rk818 Battery Charge Interface.
-+
+ 
  endif # POWER_SUPPLY
 diff --git a/drivers/power/supply/Makefile b/drivers/power/supply/Makefile
-index 2c1b264..5d91f3d 100644
+index 7f02f36..061b49df 100644
 --- a/drivers/power/supply/Makefile
 +++ b/drivers/power/supply/Makefile
-@@ -105,3 +105,4 @@ obj-$(CONFIG_RN5T618_POWER)	+= rn5t618_power.o
- obj-$(CONFIG_BATTERY_ACER_A500)	+= acer_a500_battery.o
+@@ -108,3 +108,4 @@ obj-$(CONFIG_BATTERY_ACER_A500)	+= acer_a500_battery.o
  obj-$(CONFIG_BATTERY_SURFACE)	+= surface_battery.o
  obj-$(CONFIG_CHARGER_SURFACE)	+= surface_charger.o
+ obj-$(CONFIG_BATTERY_UG3105)	+= ug3105_battery.o
 +obj-$(CONFIG_BATTERY_RK818)	+= rk818_battery.o
 diff --git a/drivers/power/supply/rk818_battery.c b/drivers/power/supply/rk818_battery.c
 new file mode 100644
-index 0000000..f09f456
+index 00000000..f09f456
 --- /dev/null
 +++ b/drivers/power/supply/rk818_battery.c
 @@ -0,0 +1,3568 @@
@@ -3684,7 +3684,7 @@ index 0000000..f09f456
 \ No newline at end of file
 diff --git a/drivers/power/supply/rk818_battery.h b/drivers/power/supply/rk818_battery.h
 new file mode 100644
-index 0000000..2f4430a
+index 00000000..2f4430a
 --- /dev/null
 +++ b/drivers/power/supply/rk818_battery.h
 @@ -0,0 +1,168 @@
@@ -3858,7 +3858,7 @@ index 0000000..2f4430a
 +#endif
 \ No newline at end of file
 diff --git a/include/linux/mfd/rk808.h b/include/linux/mfd/rk808.h
-index 2ec0520..5e33996 100644
+index fc72ca4..b08e7b8 100644
 --- a/include/linux/mfd/rk808.h
 +++ b/include/linux/mfd/rk808.h
 @@ -138,6 +138,8 @@ enum rk818_reg {
