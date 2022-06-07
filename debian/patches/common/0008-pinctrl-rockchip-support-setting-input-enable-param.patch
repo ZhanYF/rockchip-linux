@@ -10,10 +10,10 @@ Signed-off-by: Caleb Connolly <kc@postmarketos.org>
  1 file changed, 11 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/pinctrl/pinctrl-rockchip.c b/drivers/pinctrl/pinctrl-rockchip.c
-index 1eb0e45..06fa3fb 100644
+index bb0783f..e1f5845 100644
 --- a/drivers/pinctrl/pinctrl-rockchip.c
 +++ b/drivers/pinctrl/pinctrl-rockchip.c
-@@ -2129,7 +2129,7 @@ static int rockchip_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
+@@ -2144,7 +2144,7 @@ static int rockchip_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
  		param = pinconf_to_config_param(configs[i]);
  		arg = pinconf_to_config_argument(configs[i]);
  
@@ -22,7 +22,7 @@ index 1eb0e45..06fa3fb 100644
  			/*
  			 * Check for gpio driver not being probed yet.
  			 * The lock makes sure that either gpio-probe has completed
-@@ -2181,6 +2181,16 @@ static int rockchip_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
+@@ -2196,6 +2196,16 @@ static int rockchip_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
  			if (rc)
  				return rc;
  			break;

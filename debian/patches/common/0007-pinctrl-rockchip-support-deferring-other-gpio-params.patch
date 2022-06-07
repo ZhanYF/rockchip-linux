@@ -67,10 +67,10 @@ index 099e358..bcf5214 100644
  	}
  
 diff --git a/drivers/pinctrl/pinctrl-rockchip.c b/drivers/pinctrl/pinctrl-rockchip.c
-index a1b598b..1eb0e45 100644
+index 2cb79e6..bb0783f 100644
 --- a/drivers/pinctrl/pinctrl-rockchip.c
 +++ b/drivers/pinctrl/pinctrl-rockchip.c
-@@ -2095,19 +2095,20 @@ static bool rockchip_pinconf_pull_valid(struct rockchip_pin_ctrl *ctrl,
+@@ -2110,19 +2110,20 @@ static bool rockchip_pinconf_pull_valid(struct rockchip_pin_ctrl *ctrl,
  	return false;
  }
  
@@ -95,7 +95,7 @@ index a1b598b..1eb0e45 100644
  
  	return 0;
  }
-@@ -2128,6 +2129,25 @@ static int rockchip_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
+@@ -2143,6 +2144,25 @@ static int rockchip_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
  		param = pinconf_to_config_param(configs[i]);
  		arg = pinconf_to_config_argument(configs[i]);
  
@@ -121,7 +121,7 @@ index a1b598b..1eb0e45 100644
  		switch (param) {
  		case PIN_CONFIG_BIAS_DISABLE:
  			rc =  rockchip_set_pull(bank, pin - bank->pin_base,
-@@ -2156,22 +2176,6 @@ static int rockchip_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
+@@ -2171,22 +2191,6 @@ static int rockchip_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
  			if (rc != RK_FUNC_GPIO)
  				return -EINVAL;
  
@@ -144,7 +144,7 @@ index a1b598b..1eb0e45 100644
  			rc = gpio->direction_output(gpio, pin - bank->pin_base,
  						    arg);
  			if (rc)
-@@ -2485,7 +2489,7 @@ static int rockchip_pinctrl_register(struct platform_device *pdev,
+@@ -2500,7 +2504,7 @@ static int rockchip_pinctrl_register(struct platform_device *pdev,
  			pdesc++;
  		}
  
@@ -153,7 +153,7 @@ index a1b598b..1eb0e45 100644
  		mutex_init(&pin_bank->deferred_lock);
  	}
  
-@@ -2748,7 +2752,7 @@ static int rockchip_pinctrl_remove(struct platform_device *pdev)
+@@ -2763,7 +2767,7 @@ static int rockchip_pinctrl_remove(struct platform_device *pdev)
  {
  	struct rockchip_pinctrl *info = platform_get_drvdata(pdev);
  	struct rockchip_pin_bank *bank;
@@ -162,7 +162,7 @@ index a1b598b..1eb0e45 100644
  	int i;
  
  	of_platform_depopulate(&pdev->dev);
-@@ -2757,9 +2761,9 @@ static int rockchip_pinctrl_remove(struct platform_device *pdev)
+@@ -2772,9 +2776,9 @@ static int rockchip_pinctrl_remove(struct platform_device *pdev)
  		bank = &info->ctrl->pin_banks[i];
  
  		mutex_lock(&bank->deferred_lock);
