@@ -17,10 +17,10 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/base/property.c b/drivers/base/property.c
-index e6497f6..263e287 100644
+index 4d5bac0..effb1b1 100644
 --- a/drivers/base/property.c
 +++ b/drivers/base/property.c
-@@ -1231,10 +1231,10 @@ void *fwnode_connection_find_match(struct fwnode_handle *fwnode,
+@@ -1244,10 +1244,10 @@ void *fwnode_connection_find_match(struct fwnode_handle *fwnode,
  	if (!fwnode || !match)
  		return NULL;
  

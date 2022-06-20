@@ -28,10 +28,10 @@ Signed-off-by: Bjorn Andersson <bjorn.andersson@linaro.org>
  2 files changed, 101 insertions(+)
 
 diff --git a/drivers/base/property.c b/drivers/base/property.c
-index 263e287..64d9805 100644
+index effb1b1..caae550 100644
 --- a/drivers/base/property.c
 +++ b/drivers/base/property.c
-@@ -1189,6 +1189,38 @@ fwnode_graph_devcon_match(struct fwnode_handle *fwnode, const char *con_id,
+@@ -1202,6 +1202,38 @@ fwnode_graph_devcon_match(struct fwnode_handle *fwnode, const char *con_id,
  	return NULL;
  }
  
@@ -70,7 +70,7 @@ index 263e287..64d9805 100644
  static void *
  fwnode_devcon_match(struct fwnode_handle *fwnode, const char *con_id,
  		    void *data, devcon_match_fn_t match)
-@@ -1211,6 +1243,35 @@ fwnode_devcon_match(struct fwnode_handle *fwnode, const char *con_id,
+@@ -1224,6 +1256,35 @@ fwnode_devcon_match(struct fwnode_handle *fwnode, const char *con_id,
  	return NULL;
  }
  
@@ -106,7 +106,7 @@ index 263e287..64d9805 100644
  /**
   * fwnode_connection_find_match - Find connection from a device node
   * @fwnode: Device node with the connection
-@@ -1238,3 +1299,38 @@ void *fwnode_connection_find_match(struct fwnode_handle *fwnode,
+@@ -1251,3 +1312,38 @@ void *fwnode_connection_find_match(struct fwnode_handle *fwnode,
  	return fwnode_graph_devcon_match(fwnode, con_id, data, match);
  }
  EXPORT_SYMBOL_GPL(fwnode_connection_find_match);

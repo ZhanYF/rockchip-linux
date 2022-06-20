@@ -4,8 +4,6 @@ common/0003-mtd-spi-nor-gigadevice-add-support-for-gd25lq128e.patch
 common/0004-media-rockchip-rga-Fix-probe-bugs.patch
 common/0005-mmc-dw-mmc-rockchip-fix-sdmmc-after-soft-reboot.patch
 common/0006-usb-dwc3-core-do-not-use-3.0-clock-when-operating-in.patch
-common/0007-pinctrl-rockchip-support-deferring-other-gpio-params.patch
-common/0008-pinctrl-rockchip-support-setting-input-enable-param.patch
 common/0009-gpio-rockchip-handle-deferring-input-enable-pinconfs.patch
 common/0010-arm64-dts-rockchip-rk3399-add-an-input-enable-pincon.patch
 common/0011-iio-stk3310-Export-near-level-property-for-proximity.patch
