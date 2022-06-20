@@ -1,3 +1,10 @@
+linux-5.17-rockchip (5.17.15+rockchip-1) unstable; urgency=medium
+
+  [ Undef ]
+  * rebase on 5.17.15
+
+ -- Undef <debian@undef.tools>  Mon, 20 Jun 2022 11:22:31 +0000
+
 linux-5.17-rockchip (5.17.5+rockchip-4) unstable; urgency=medium
 
   * d/patches: rebase on 5.17.5
