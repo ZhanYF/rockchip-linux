@@ -396,10 +396,6 @@
 		regulator-max-microvolt = <5000000>;
 		regulator-name = "vcc5v0_typec";
 		vin-supply = <&boost_otg>;
-
-		regulator-state-mem {
-			regulator-on-in-suspend;
-		};
 	};
 
 	vcc3v3_sys: vcc3v3-sys-regulator {
@@ -728,7 +724,6 @@
 				regulator-max-microvolt = <5000000>;
 				regulator-state-mem {
 					regulator-on-in-suspend;
-					regulator-suspend-microvolt = <5000000>;
 				};
 			};
 
