@@ -12,7 +12,7 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  2 files changed, 20 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
-index 1d5affa..ae3b930 100644
+index acc4b07..b113b8d 100644
 --- a/drivers/usb/typec/tcpm/fusb302.c
 +++ b/drivers/usb/typec/tcpm/fusb302.c
 @@ -787,7 +787,7 @@ static int tcpm_get_cc(struct tcpc_dev *dev, enum typec_cc_status *cc1,
