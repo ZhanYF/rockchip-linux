@@ -18,10 +18,10 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 007a653..33d3bc3 100644
+index 91e75d9..d45beba 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -996,7 +996,7 @@ connector {
+@@ -1034,7 +1034,7 @@ connector {
  			altmodes {
  				dp {
  					svid = <0xff01>;

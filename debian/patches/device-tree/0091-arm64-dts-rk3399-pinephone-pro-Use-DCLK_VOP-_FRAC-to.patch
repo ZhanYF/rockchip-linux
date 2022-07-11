@@ -12,10 +12,10 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  1 file changed, 6 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 69a9cd4..680eb49 100644
+index e56d663..19b18bf 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -1211,6 +1211,9 @@ &usbdrd_dwc3_0 {
+@@ -1228,6 +1228,9 @@ &usbdrd_dwc3_0 {
  
  &vopb {
  	status = "okay";
@@ -25,7 +25,7 @@ index 69a9cd4..680eb49 100644
  };
  
  &vopb_mmu {
-@@ -1219,6 +1222,9 @@ &vopb_mmu {
+@@ -1236,6 +1239,9 @@ &vopb_mmu {
  
  &vopl {
  	status = "okay";
