@@ -17,7 +17,7 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  1 file changed, 103 insertions(+), 39 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 40a9fb8..69a9cd4 100644
+index 5780bc9..e56d663 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 @@ -12,8 +12,6 @@
@@ -191,7 +191,7 @@ index 40a9fb8..69a9cd4 100644
  	};
  
  	vdd_cpu_b: regulator@40 {
-@@ -697,7 +755,9 @@ fusb0: typec-portc@22 {
+@@ -710,7 +768,9 @@ fusb0: typec-portc@22 {
  		interrupts = <RK_PA2 IRQ_TYPE_LEVEL_LOW>;
  		pinctrl-names = "default";
  		pinctrl-0 = <&fusb0_int>;
@@ -202,7 +202,7 @@ index 40a9fb8..69a9cd4 100644
  
  		connector {
  			compatible = "usb-c-connector";
-@@ -705,12 +765,18 @@ connector {
+@@ -718,12 +778,18 @@ connector {
  			label = "USB-C";
  			op-sink-microwatt = <2500000>;
  			power-role = "dual";
@@ -225,7 +225,7 @@ index 40a9fb8..69a9cd4 100644
  
  			ports {
  				#address-cells = <1>;
-@@ -1035,7 +1101,7 @@ &sdhci {
+@@ -1052,7 +1118,7 @@ &sdhci {
  };
  
  &tcphy0 {
@@ -234,7 +234,7 @@ index 40a9fb8..69a9cd4 100644
  	status = "okay";
  };
  
-@@ -1065,15 +1131,7 @@ &tsadc {
+@@ -1082,15 +1148,7 @@ &tsadc {
  
  &u2phy0 {
  	status = "okay";
@@ -251,7 +251,7 @@ index 40a9fb8..69a9cd4 100644
  
  	port {
  		u2phy0_typec_hs: endpoint {
-@@ -1082,17 +1140,22 @@ u2phy0_typec_hs: endpoint {
+@@ -1099,17 +1157,22 @@ u2phy0_typec_hs: endpoint {
  	};
  };
  
@@ -282,7 +282,7 @@ index 40a9fb8..69a9cd4 100644
  };
  
  &uart0 {
-@@ -1141,7 +1204,8 @@ &usbdrd3_0 {
+@@ -1158,7 +1221,8 @@ &usbdrd3_0 {
  };
  
  &usbdrd_dwc3_0 {
