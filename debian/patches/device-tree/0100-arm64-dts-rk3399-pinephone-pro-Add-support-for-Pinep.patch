@@ -11,10 +11,10 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  1 file changed, 9 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 2e0e0dc..dd4233b 100644
+index c533d24..8e94dba 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -959,6 +959,15 @@ &i2c5 {
+@@ -997,6 +997,15 @@ &i2c5 {
  	i2c-scl-falling-time-ns = <15>;
  	pinctrl-0 = <&i2c5_xfer &pogo_int_pin>;
  	status = "okay";
