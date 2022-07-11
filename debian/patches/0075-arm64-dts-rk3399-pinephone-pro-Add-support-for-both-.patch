@@ -1,17 +1,16 @@
-From: Ondrej Jirman <megous@megous.com>
+From: =?utf-8?q?Ond=C5=99ej_Jirman?= <megi@xff.cz>
 Date: Thu, 21 Oct 2021 20:25:35 +0200
-Subject: [PATCH 07/18] arm64: dts: rk3399-pinephone-pro: Add support for both
- cameras
+Subject: arm64: dts: rk3399-pinephone-pro: Add support for both cameras
 
 IMX258 + OV5640.
 
-Signed-off-by: Ondrej Jirman <megous@megous.com>
+Signed-off-by: Ondrej Jirman <megi@xff.cz>
 ---
- .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 146 ++++++++++++++++++++-
- 1 file changed, 142 insertions(+), 4 deletions(-)
+ .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 163 ++++++++++++++++++++-
+ 1 file changed, 159 insertions(+), 4 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 96b5170..3bd36ef 100644
+index 96b5170..a9135f0 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 @@ -456,8 +456,6 @@ regulator-state-mem {
@@ -23,7 +22,7 @@ index 96b5170..3bd36ef 100644
  				regulator-min-microvolt = <1800000>;
  				regulator-max-microvolt = <1800000>;
  				regulator-state-mem {
-@@ -579,10 +577,92 @@ regulator-state-mem {
+@@ -579,10 +577,105 @@ regulator-state-mem {
  	};
  };
  
@@ -40,14 +39,13 @@ index 96b5170..3bd36ef 100644
 + * VCC2V8_DVP   af    - autoenabled by VCC1V8_DVP   depends on VCC3V3_SYS
 + * AVDD2V8_DVP        - autoenabled by VCC1V8_DVP   depends on VCC3V3_SYS
 + *
-+ * mipi0  = imx258
-+ *   reset = gpio1 A0
++ * isp1 = imx258
++ *   reset = GPIO1_A0
 + *   powerdown = GPIO2_B4
 + *
-+ * mipi1  = OV5640
++ * isp0 = OV8858
 + *   powerdown = GPIO2_D4
-+ *
-+ *   bt656-supply = <&vcc1v8_dvp>;
++ *   reset = GPIO1_A4
 + */
  &i2c1 {
 +	status = "okay";
@@ -63,7 +61,6 @@ index 96b5170..3bd36ef 100644
 +	assigned-clock-parents = <&cru SCLK_CIF_OUT_SRC &cru PLL_GPLL>;
 +	assigned-clock-rates = <19200000 0>;
 +
-+	/* Rear-facing camera */
 +	wcam: camera@1a {
 +		compatible = "sony,imx258";
 +		reg = <0x1a>;
@@ -74,54 +71,69 @@ index 96b5170..3bd36ef 100644
 +		clock-names = "xvclk";
 +
 +		vif-supply = <&vcc1v8_dvp>;
-+		/*XXX: also depends on vcca1v8_codec for I2C bus power */
++		i2c-supply = <&vcca1v8_codec>;
++		/*XXX: also depends on vcca1v8_codec for I2C bus power (currently always on) */
 +
 +		reset-gpios = <&gpio1 RK_PA0 GPIO_ACTIVE_LOW>;
 +		powerdown-gpios = <&gpio2 RK_PD4 GPIO_ACTIVE_HIGH>;
++
 +		rotation = <180>;
++		
++		lens-focus = <&wcam_lens>;
++		flash-leds = <&sgm3140_flash>;
 +
 +		port {
 +			wcam_out: endpoint {
 +				remote-endpoint = <&mipi_in_wcam>;
 +				data-lanes = <1 2 3 4>;
-+				link-frequencies = /bits/ 64 <320000000>;
-+				//link-frequencies = /bits/ 64 <633600000>;
 +			};
 +		};
 +	};
 +
-+	/* Front-facing camera */
-+	ucam: camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
++	wcam_lens: camera-lens@c {
++		compatible = "dongwoon,dw9714";
++		reg = <0x0c>;
++		vcc-supply = <&vcc1v8_dvp>;
++	};
++
++	ucam: camera@36 {
++		compatible = "ovti,ov8858";
++		reg = <0x36>;
 +		pinctrl-names = "default";
-+		pinctrl-0 = <&ucam_pdn>;
++		pinctrl-0 = <&ucam_pdn &ucam_rst>;
 +
 +		clocks = <&cru SCLK_CIF_OUT>;
-+		clock-names = "xclk";
++		clock-names = "xvclk";
 +
-+		DOVDD-supply = <&vcc1v8_dvp>;
++		dovdd-supply = <&vcc1v8_dvp>;
 +		/*XXX: also depends on vcca1v8_codec for I2C bus power */
 +
-+		powerdown-gpios = <&gpio2 RK_PD4 GPIO_ACTIVE_HIGH>;
++		reset-gpios = <&gpio1 RK_PA4 GPIO_ACTIVE_LOW>;
++		powerdown-gpios = <&gpio2 RK_PB4 GPIO_ACTIVE_LOW>;
++
++		/* we're using forward ported BSP driver, thus: */
++		rockchip,camera-module-index = <0x00>;
++		rockchip,camera-module-facing = "front";
++		rockchip,camera-module-name = "CameraKing";
++		rockchip,camera-module-lens-name = "Largan-9569A2";
++
 +		rotation = <180>;
 +
 +		port {
 +			ucam_out: endpoint {
 +				remote-endpoint = <&mipi_in_ucam>;
 +				data-lanes = <1 2>;
-+				clock-lanes = <0>;
 +			};
 +		};
 +	};
  };
  
  &i2c3 {
-@@ -723,6 +803,50 @@ &io_domains {
+@@ -723,6 +816,50 @@ &io_domains {
  	gpio1830-supply = <&vcc_3v0>;
  };
  
-+&isp0 {
++&isp1 {
 +	status = "okay";
 +
 +	ports {
@@ -139,7 +151,7 @@ index 96b5170..3bd36ef 100644
 +	status = "okay";
 +};
 +
-+&isp1 {
++&isp0 {
 +	status = "okay";
 +
 +	ports {
@@ -168,7 +180,7 @@ index 96b5170..3bd36ef 100644
  &mipi_dsi {
  	status = "okay";
  	clock-master;
-@@ -783,6 +907,20 @@ pwrbtn_pin: pwrbtn-pin {
+@@ -783,6 +920,24 @@ pwrbtn_pin: pwrbtn-pin {
  		};
  	};
  
@@ -181,6 +193,10 @@ index 96b5170..3bd36ef 100644
 +			rockchip,pins = <2 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>;
 +		};
 +
++		ucam_rst: ucam-rst {
++			rockchip,pins = <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
 +		ucam_pdn: ucam-pdn {
 +			rockchip,pins = <2 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
 +		};
@@ -189,7 +205,7 @@ index 96b5170..3bd36ef 100644
  	fusb302x {
  		fusb0_int: fusb0-int {
  			rockchip,pins = <1 RK_PA2 RK_FUNC_GPIO &pcfg_pull_up>;
-@@ -1033,4 +1171,4 @@ &vopl {
+@@ -1033,4 +1188,4 @@ &vopl {
  
  &vopl_mmu {
  	status = "okay";
