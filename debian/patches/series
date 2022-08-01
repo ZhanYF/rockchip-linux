@@ -120,3 +120,5 @@ debian/0110-wireless-add-debian-wireless-regdb-certificates.patch
 0120-usb-dwc3-Save-desired_dr_role-on-stack-during-set_mo.patch
 0121-usb-dwc3-Track-the-power-state-of-usb3_generic_phy.patch
 0122-Revert-phy-rockchip-typec-Make-sure-the-plug-orienta.patch
+0123-dt-bindings-iio-light-stk33xx-Add-proximity-near-lev.patch
+0124-arm64-configs-enable-preempt.patch
