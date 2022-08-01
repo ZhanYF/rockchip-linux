@@ -15,7 +15,7 @@ Signed-off-by: Samuel Holland <samuel@sholland.org>
  create mode 100644 drivers/input/keyboard/pinephone-keyboard.c
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index f468864..425e7d5 100644
+index 2b70e2d..a5ab9af 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
 @@ -15659,6 +15659,12 @@ S:	Maintained
