@@ -1,0 +1,26 @@
+From: undef <gitlab@undef.tools>
+Date: Mon, 1 Aug 2022 04:34:10 +0000
+Subject: arm64: configs: enable preempt
+
+---
+ arch/arm64/configs/rockchip_defconfig | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/arch/arm64/configs/rockchip_defconfig b/arch/arm64/configs/rockchip_defconfig
+index 0df2c48..51e749b 100644
+--- a/arch/arm64/configs/rockchip_defconfig
++++ b/arch/arm64/configs/rockchip_defconfig
+@@ -6,7 +6,13 @@ CONFIG_BPF_SYSCALL=y
+ CONFIG_BPF_JIT=y
+ CONFIG_BPF_JIT_ALWAYS_ON=y
+ CONFIG_BPF_LSM=y
++CONFIG_PREEMPT_BUILD=y
+ CONFIG_PREEMPT_VOLUNTARY=y
++CONFIG_PREEMPT_COUNT=y
++CONFIG_PREEMPTION=y
++CONFIG_PREEMPT_DYNAMIC=y
++CONFIG_PREEMPT_RCU=y
++CONFIG_PREEMPT_NOTIFIERS=y
+ CONFIG_IRQ_TIME_ACCOUNTING=y
+ CONFIG_BSD_PROCESS_ACCT=y
+ CONFIG_BSD_PROCESS_ACCT_V3=y
