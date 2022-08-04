@@ -1,4 +1,4 @@
-Source: linux-5.17-rockchip
+Source: linux-5.19-rockchip
 Section: kernel
 Priority: optional
 Maintainer: Arnaud Ferraris <arnaud.ferraris@gmail.com>
@@ -17,25 +17,25 @@ Vcs-Git: https://gitlab.com/mobian1/devices/rockchip-linux.git
 Vcs-Browser: https://gitlab.com/mobian1/devices/rockchip-linux
 Rules-Requires-Root: no
 
-Package: linux-image-5.17-rockchip
+Package: linux-image-5.19-rockchip
 Architecture: arm64
 Depends:
  initramfs-tools,
  kmod,
  linux-base,
 Provides: wireguard-modules (= 1.0.0)
-Description: Linux 5.17 for Rockchip-based devices
+Description: Linux 5.19 for Rockchip-based devices
  The linux kernel, modules and corresponding other files for Rockchip-based
  devices such as the PinePhone Pro and PineNote.
 
-Package: linux-headers-5.17-rockchip
+Package: linux-headers-5.19-rockchip
 Architecture: arm64
 Description: Linux kernel headers for Rockchip-based devices
  This package provides kernel header files for the rockchip kernel.
  .
  This is useful for people who need to build external modules
 
-Package: linux-image-5.17-rockchip-dbg
+Package: linux-image-5.19-rockchip-dbg
 Section: debug
 Architecture: arm64
 Description: Linux kernel debugging symbols for Rockchip-based devices
