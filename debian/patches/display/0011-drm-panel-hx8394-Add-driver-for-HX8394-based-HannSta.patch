@@ -18,7 +18,7 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  create mode 100644 drivers/gpu/drm/panel/panel-himax-hx8394.c
 
 diff --git a/drivers/gpu/drm/panel/Kconfig b/drivers/gpu/drm/panel/Kconfig
-index 38799ef..4029c8f 100644
+index 4f1f004..2e41af5 100644
 --- a/drivers/gpu/drm/panel/Kconfig
 +++ b/drivers/gpu/drm/panel/Kconfig
 @@ -143,6 +143,15 @@ config DRM_PANEL_FEIYANG_FY07024DI26A30D
