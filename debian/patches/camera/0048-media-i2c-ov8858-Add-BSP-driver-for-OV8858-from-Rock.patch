@@ -16,7 +16,7 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  create mode 100644 drivers/media/i2c/rk-camera-module.h
 
 diff --git a/drivers/media/i2c/Kconfig b/drivers/media/i2c/Kconfig
-index 2b20aa6..90a4ad5 100644
+index c926e5d..6d1a63f 100644
 --- a/drivers/media/i2c/Kconfig
 +++ b/drivers/media/i2c/Kconfig
 @@ -604,6 +604,19 @@ config VIDEO_OV8856
