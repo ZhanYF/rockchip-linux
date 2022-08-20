@@ -15,10 +15,10 @@ Signed-off-by: Samuel Holland <samuel@sholland.org>
  create mode 100644 drivers/input/keyboard/pinephone-keyboard.c
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 64379c6..5f2cd1c 100644
+index 08620b9..5d7790a 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -15961,6 +15961,12 @@ F:	include/asm-generic/platform-feature.h
+@@ -15956,6 +15956,12 @@ F:	include/asm-generic/platform-feature.h
  F:	include/linux/platform-feature.h
  F:	kernel/platform-feature.c
  
