@@ -1,3 +1,10 @@
+linux-5.19-rockchip (5.19.6+rockchip-1) unstable; urgency=medium
+
+  [ Undef ]
+  * rebase patches on 5.19.6
+
+ -- Undef <debian@undef.tools>  Fri, 02 Sep 2022 05:16:18 +0000
+
 linux-5.19-rockchip (5.19.2+rockchip-1) unstable; urgency=medium
 
   [ Undef ]
