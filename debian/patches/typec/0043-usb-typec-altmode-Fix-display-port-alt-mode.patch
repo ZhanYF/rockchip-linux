@@ -6,14 +6,14 @@ Subject: usb: typec: altmode: Fix display port alt mode
 
 Signed-off-by: Ondrej Jirman <megi@xff.cz>
 ---
- drivers/usb/typec/altmodes/displayport.c | 28 +++++++++++++++++-----------
- 1 file changed, 17 insertions(+), 11 deletions(-)
+ drivers/usb/typec/altmodes/displayport.c | 32 +++++++++++++++++++++-----------
+ 1 file changed, 21 insertions(+), 11 deletions(-)
 
 diff --git a/drivers/usb/typec/altmodes/displayport.c b/drivers/usb/typec/altmodes/displayport.c
-index 1a7a350..860e514 100644
+index 1a7a350..e9a533086 100644
 --- a/drivers/usb/typec/altmodes/displayport.c
 +++ b/drivers/usb/typec/altmodes/displayport.c
-@@ -93,27 +93,33 @@ static int dp_altmode_configure(struct dp_altmode *dp, u8 con)
+@@ -93,27 +93,37 @@ static int dp_altmode_configure(struct dp_altmode *dp, u8 con)
  		return 0;
  	case DP_STATUS_CON_DFP_D:
  		conf |= DP_CONF_UFP_U_AS_DFP_D;
@@ -32,6 +32,9 @@ index 1a7a350..860e514 100644
 -		pin_assign = dp->port->vdo & DP_CAP_RECEPTACLE ?
 -			DP_CAP_UFP_D_PIN_ASSIGN(dp->port->vdo) :
 -			DP_CAP_DFP_D_PIN_ASSIGN(dp->port->vdo);
++		pin_assign = DP_CAP_PIN_ASSIGN_UFP_D(dp->alt->vdo) &
++				 DP_CAP_PIN_ASSIGN_DFP_D(dp->port->vdo);
++
 +		/*
 +		 * The Display Port Alt mode standard is not publicly available,
 +		 * so this is based on guesswork and real VDOs received from
@@ -40,13 +43,14 @@ index 1a7a350..860e514 100644
 +		 *
 +		 * Plug (captive cable) based dock: port=c46 alt=c05
 +		 * Recpetacle based dock: port=c46 alt=c0045
-+		 */
++		 *
 +		pin_assign = DP_CAP_DFP_D_PIN_ASSIGN(dp->port->vdo);
  		pin_assign &= dp->alt->vdo & DP_CAP_RECEPTACLE ?
 -			DP_CAP_DFP_D_PIN_ASSIGN(dp->alt->vdo) :
 -			DP_CAP_UFP_D_PIN_ASSIGN(dp->alt->vdo);
 +			DP_CAP_UFP_D_PIN_ASSIGN(dp->alt->vdo) :
 +			DP_CAP_DFP_D_PIN_ASSIGN(dp->alt->vdo);
++		 */
  		break;
  	default:
  		break;

@@ -1,0 +1,59 @@
+From: Ondrej Jirman <megi@xff.cz>
+Date: Fri, 9 Sep 2022 15:50:09 +0200
+Subject: usb: dwc3: Fix usb3_phy_reset_quirk implementation
+
+Sometime during the last rebases/stable pulls this got broken.
+
+Signed-off-by: Ondrej Jirman <megi@xff.cz>
+---
+ drivers/usb/dwc3/core.c | 30 +++++++++++++++++++++++++++---
+ 1 file changed, 27 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
+index d144215..debf2e4 100644
+--- a/drivers/usb/dwc3/core.c
++++ b/drivers/usb/dwc3/core.c
+@@ -178,9 +178,28 @@ static void __dwc3_set_mode(struct work_struct *work)
+ 		reg |= DWC3_GCTL_CORESOFTRESET;
+ 		dwc3_writel(dwc->regs, DWC3_GCTL, reg);
+ 
+-		if (dwc->usb3_phy_reset_quirk) {
+-			ret = phy_power_on(dwc->usb3_generic_phy);
+-			dwc->usb3_phy_powered = ret >= 0;
++		if (dwc->usb3_phy_powered && dwc->usb3_phy_reset_quirk) {
++			/*
++			 * RK3399 TypeC PHY needs to be powered off and powered on again
++			 * for it to apply the correct Type-C plug orientation setting
++			 * and reconfigure itself.
++			 *
++			 * For that purpose we observe complete USB disconnect via
++			 * extcon in drd.c and pass it to __dwc3_set_mode as
++			 * desired_dr_role == 0.
++			 *
++			 * We thus handle transitions between three states of
++			 * desired_dr_role here:
++			 *
++			 * - DWC3_GCTL_PRTCAP_HOST
++			 * - DWC3_GCTL_PRTCAP_DEVICE
++			 * - DWC3_GCTL_PRTCAP_DEVICE_DISCONNECTED - almost equivalent to
++			 *   DWC3_GCTL_PRTCAP_DEVICE, present only to distinguish
++			 *   disconnected state, and so that set_mode is called when
++			 *   user plugs in the device to the host.
++			 */
++			phy_power_off(dwc->usb3_generic_phy);
++			dwc->usb3_phy_powered = false;
+ 		}
+ 
+ 		/*
+@@ -191,6 +210,11 @@ static void __dwc3_set_mode(struct work_struct *work)
+ 		 */
+ 		msleep(100);
+ 
++		if (desired_dr_role && dwc->usb3_phy_reset_quirk) {
++			ret = phy_power_on(dwc->usb3_generic_phy);
++			dwc->usb3_phy_powered = ret >= 0;
++		}
++
+ 		reg = dwc3_readl(dwc->regs, DWC3_GCTL);
+ 		reg &= ~DWC3_GCTL_CORESOFTRESET;
+ 		dwc3_writel(dwc->regs, DWC3_GCTL, reg);
