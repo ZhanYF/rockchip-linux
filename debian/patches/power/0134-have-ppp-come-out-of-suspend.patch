@@ -1,0 +1,12 @@
+diff --git a/drivers/usb/serial/option.c b/drivers/usb/serial/option.c
+index a5e8374a8d71..5f6ec7f4797e 100644
+--- a/drivers/usb/serial/option.c
++++ b/drivers/usb/serial/option.c
+@@ -2203,6 +2203,7 @@ static struct usb_serial_driver option_1port_device = {
+ #ifdef CONFIG_PM
+ 	.suspend           = usb_wwan_suspend,
+ 	.resume            = usb_wwan_resume,
++	.reset_resume	   = usb_wwan_resume,
+ #endif
+ };
+ 

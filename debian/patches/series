@@ -131,3 +131,4 @@ device-tree/0130-arm64-dts-rk3399-pinephone-pro-Fix-initial-codec-clo.patch
 mobian/0131-arm64-configs-add-rockchip_defconfig.patch
 mobian/0132-builddeb-don-t-build-linux-libc-dev-package.patch
 debian/0133-wireless-add-debian-wireless-regdb-certificates.patch
+power/0134-have-ppp-come-out-of-suspend.patch
