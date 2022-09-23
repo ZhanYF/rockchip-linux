@@ -39,7 +39,7 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  3 files changed, 52 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
-index 1db9f51..21ed905c 100644
+index 1db9f51..21ed905 100644
 --- a/drivers/usb/dwc3/core.c
 +++ b/drivers/usb/dwc3/core.c
 @@ -110,7 +110,7 @@ void dwc3_set_prtcap(struct dwc3 *dwc, u32 mode)

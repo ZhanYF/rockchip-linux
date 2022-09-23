@@ -53,7 +53,7 @@ index 3e16969..72b5d26 100644
  obj-$(CONFIG_VIDEO_OV9640) += ov9640.o
 diff --git a/drivers/media/i2c/ov8858.c b/drivers/media/i2c/ov8858.c
 new file mode 100644
-index 00000000..11f01e3
+index 0000000..11f01e3
 --- /dev/null
 +++ b/drivers/media/i2c/ov8858.c
 @@ -0,0 +1,3018 @@
@@ -3077,7 +3077,7 @@ index 00000000..11f01e3
 +MODULE_LICENSE("GPL v2");
 diff --git a/drivers/media/i2c/rk-camera-module.h b/drivers/media/i2c/rk-camera-module.h
 new file mode 100644
-index 00000000..9883565
+index 0000000..9883565
 --- /dev/null
 +++ b/drivers/media/i2c/rk-camera-module.h
 @@ -0,0 +1,146 @@
