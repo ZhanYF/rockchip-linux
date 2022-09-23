@@ -13,7 +13,7 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index 2f8df74..b88dd7ed 100644
+index 2f8df74..b88dd7e 100644
 --- a/drivers/media/platform/rockchip/rga/rga.c
 +++ b/drivers/media/platform/rockchip/rga/rga.c
 @@ -815,8 +815,10 @@ static int rga_probe(struct platform_device *pdev)
