@@ -26,4 +26,4 @@ index a5e8374..5f6ec7f 100644
 +	.reset_resume	   = usb_wwan_resume,
  #endif
  };
-
+ 

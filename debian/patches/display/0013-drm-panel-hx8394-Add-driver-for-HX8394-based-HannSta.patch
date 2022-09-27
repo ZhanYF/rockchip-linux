@@ -48,7 +48,7 @@ index 42a7ab5..70e1bd5 100644
 +obj-$(CONFIG_DRM_PANEL_HIMAX_HX8394) += panel-himax-hx8394.o
 diff --git a/drivers/gpu/drm/panel/panel-himax-hx8394.c b/drivers/gpu/drm/panel/panel-himax-hx8394.c
 new file mode 100644
-index 0000000..14659cb
+index 00000000..14659cb
 --- /dev/null
 +++ b/drivers/gpu/drm/panel/panel-himax-hx8394.c
 @@ -0,0 +1,410 @@

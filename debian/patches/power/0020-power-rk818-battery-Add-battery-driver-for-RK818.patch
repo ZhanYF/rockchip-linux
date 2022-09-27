@@ -99,7 +99,7 @@ index 1aa8323..15f70c5 100644
  
  endif # POWER_SUPPLY
 diff --git a/drivers/power/supply/Makefile b/drivers/power/supply/Makefile
-index 7f02f36..061b49d 100644
+index 7f02f36..061b49df 100644
 --- a/drivers/power/supply/Makefile
 +++ b/drivers/power/supply/Makefile
 @@ -108,3 +108,4 @@ obj-$(CONFIG_BATTERY_ACER_A500)	+= acer_a500_battery.o
@@ -109,7 +109,7 @@ index 7f02f36..061b49d 100644
 +obj-$(CONFIG_BATTERY_RK818)	+= rk818_battery.o
 diff --git a/drivers/power/supply/rk818_battery.c b/drivers/power/supply/rk818_battery.c
 new file mode 100644
-index 0000000..f09f456
+index 00000000..f09f456
 --- /dev/null
 +++ b/drivers/power/supply/rk818_battery.c
 @@ -0,0 +1,3568 @@
@@ -3684,7 +3684,7 @@ index 0000000..f09f456
 \ No newline at end of file
 diff --git a/drivers/power/supply/rk818_battery.h b/drivers/power/supply/rk818_battery.h
 new file mode 100644
-index 0000000..2f4430a
+index 00000000..2f4430a
 --- /dev/null
 +++ b/drivers/power/supply/rk818_battery.h
 @@ -0,0 +1,168 @@
