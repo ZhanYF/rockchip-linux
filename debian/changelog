@@ -1,3 +1,9 @@
+linux-5.19-rockchip (5.19.14+rockchip-4) unstable; urgency=medium
+
+  * Rebase on 5.19.14
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Thu, 06 Oct 2022 11:34:10 +0200
+
 linux-5.19-rockchip (5.19.11+rockchip-3) unstable; urgency=medium
 
   * d/patches: rebase on 5.19.11
