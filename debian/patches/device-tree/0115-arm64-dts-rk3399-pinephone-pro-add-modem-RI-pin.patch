@@ -10,7 +10,7 @@ Signed-off-by: Arnaud Ferraris <arnaud.ferraris@gmail.com>
  1 file changed, 19 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 54f4198..5666cda 100644
+index 7e2e75d..b41e974 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 @@ -160,6 +160,21 @@ power {
