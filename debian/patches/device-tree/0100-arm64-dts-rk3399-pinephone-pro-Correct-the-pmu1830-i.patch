@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Mon, 18 Oct 2021 03:57:56 +0200
-Subject: [PATCH 05/18] arm64: dts: rk3399-pinephone-pro: Correct the pmu1830
+Subject: arm64: dts: rk3399-pinephone-pro: Correct the pmu1830
  io-domain supply
 
 It's connected to vcc_1v8 according to datasheet. Credits to carlos

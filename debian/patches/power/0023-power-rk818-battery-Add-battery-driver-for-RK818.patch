@@ -1,6 +1,6 @@
 From: =?utf-8?q?Kamil_Trzci=C5=84ski?= <ayufan@ayufan.eu>
 Date: Sun, 3 Jan 2021 11:43:38 +0100
-Subject: [PATCH 12/36] power: rk818-battery: Add battery driver for RK818
+Subject: power: rk818-battery: Add battery driver for RK818
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit

@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Tue, 23 Nov 2021 23:26:26 +0100
-Subject: [PATCH 17/18] arm64: dts: rk3399-pinephone-pro: Add support for
+Subject: arm64: dts: rk3399-pinephone-pro: Add support for
  powering up the modem
 
 Pinephone Pro has the same modem that's already supported by modem-power.

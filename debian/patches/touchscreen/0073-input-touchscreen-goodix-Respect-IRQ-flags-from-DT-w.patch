@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Mon, 18 Oct 2021 03:56:14 +0200
-Subject: [PATCH 17/36] input: touchscreen: goodix: Respect IRQ flags from DT
+Subject: input: touchscreen: goodix: Respect IRQ flags from DT
  when asked to
 
 Sometimes the IRQ flags determined from toucschreen config don't
