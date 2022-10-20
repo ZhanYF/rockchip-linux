@@ -1,6 +1,6 @@
 From: =?utf-8?q?Kamil_Trzci=C5=84ski?= <ayufan@ayufan.eu>
 Date: Wed, 8 Sep 2021 13:50:04 +0200
-Subject: [PATCH 05/36] drm: panel: hx8394: Add driver for HX8394 based
+Subject: drm: panel: hx8394: Add driver for HX8394 based
  HannStar HSD060BHW4 panel
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"

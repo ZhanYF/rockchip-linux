@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megi@xff.cz>
 Date: Sun, 21 Nov 2021 17:00:09 +0100
-Subject: [PATCH] media: rockchip: rga: Fix probe rga_parse_dt bugs
+Subject: media: rockchip: rga: Fix probe rga_parse_dt bugs
 
 rga_parse_dt is missing a error return, so if some of the resources
 return DEFER_PROBE, probe will succeed without these resources.

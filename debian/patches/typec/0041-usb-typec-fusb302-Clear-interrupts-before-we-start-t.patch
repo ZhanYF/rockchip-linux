@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Sat, 20 Nov 2021 14:35:10 +0100
-Subject: [PATCH 34/36] usb: typec: fusb302: Clear interrupts before we start
+Subject: usb: typec: fusb302: Clear interrupts before we start
  toggling
 
 This is recommended by the datasheet.

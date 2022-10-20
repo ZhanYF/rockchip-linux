@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Sun, 7 Nov 2021 19:30:46 +0100
-Subject: [PATCH 14/18] arm64: dts: rk3399-pinephone-pro: Use a new
+Subject: arm64: dts: rk3399-pinephone-pro: Use a new
  rk818-battery compatible
 
 Signed-off-by: Ondrej Jirman <megous@megous.com>
