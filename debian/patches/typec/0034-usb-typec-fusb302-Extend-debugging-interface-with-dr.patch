@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Sun, 7 Nov 2021 19:29:06 +0100
-Subject: [PATCH 27/36] usb: typec: fusb302: Extend debugging interface with
+Subject: usb: typec: fusb302: Extend debugging interface with
  driver state dumps
 
 This is useful for debugging.

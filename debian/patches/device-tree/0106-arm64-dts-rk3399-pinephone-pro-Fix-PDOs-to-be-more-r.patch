@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Tue, 26 Oct 2021 01:30:14 +0200
-Subject: [PATCH 11/18] arm64: dts: rk3399-pinephone-pro: Fix PDOs to be more
+Subject: arm64: dts: rk3399-pinephone-pro: Fix PDOs to be more
  reasonable
 
 Let's not overtax the battery and provide only 4.5W to external devices.

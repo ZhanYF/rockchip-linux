@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Wed, 20 Oct 2021 22:41:43 +0200
-Subject: [PATCH 08/18] arm64: dts: rk3399-pinephone-pro: Fix SD card power
+Subject: arm64: dts: rk3399-pinephone-pro: Fix SD card power
  supply definition
 
 GPIO0_A1 is used for modem's RI. SD card power supply is not changeable.

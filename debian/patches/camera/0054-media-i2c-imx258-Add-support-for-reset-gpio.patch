@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Fri, 22 Oct 2021 21:44:13 +0200
-Subject: [PATCH 22/36] media: i2c: imx258: Add support for reset gpio
+Subject: media: i2c: imx258: Add support for reset gpio
 
 It was documented in DT, but not implemented.
 

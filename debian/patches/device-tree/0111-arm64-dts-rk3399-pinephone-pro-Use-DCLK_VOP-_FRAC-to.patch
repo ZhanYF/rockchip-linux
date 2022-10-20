@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Mon, 15 Nov 2021 23:52:40 +0100
-Subject: [PATCH 16/18] arm64: dts: rk3399-pinephone-pro: Use DCLK_VOP*_FRAC
+Subject: arm64: dts: rk3399-pinephone-pro: Use DCLK_VOP*_FRAC
  to achieve precise rates
 
 By setting parents of DCLK_VOP1_DIV to frac/cpll we can achieve

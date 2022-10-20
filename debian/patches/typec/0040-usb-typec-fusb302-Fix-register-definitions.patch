@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Sat, 20 Nov 2021 14:33:58 +0100
-Subject: [PATCH 33/36] usb: typec: fusb302: Fix register definitions
+Subject: usb: typec: fusb302: Fix register definitions
 
 MEASURE_VBUS bit is at position 6. MDAC bits are also wrong.
 

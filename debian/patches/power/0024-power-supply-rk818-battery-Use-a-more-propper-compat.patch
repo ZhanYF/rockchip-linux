@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Sun, 7 Nov 2021 19:30:07 +0100
-Subject: [PATCH 13/36] power: supply: rk818-battery: Use a more propper
+Subject: power: supply: rk818-battery: Use a more propper
  compatible string
 
 Prefix with vendor name.

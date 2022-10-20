@@ -1,6 +1,6 @@
 From: =?utf-8?q?Kamil_Trzci=C5=84ski?= <ayufan@ayufan.eu>
 Date: Mon, 4 Jan 2021 17:57:49 +0100
-Subject: [PATCH 11/36] power: rk818: Configure `rk808-clkout2` function
+Subject: power: rk818: Configure `rk808-clkout2` function
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit

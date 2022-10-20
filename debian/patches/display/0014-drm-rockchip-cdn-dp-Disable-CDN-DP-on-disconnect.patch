@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Sat, 20 Nov 2021 14:35:52 +0100
-Subject: [PATCH 09/36] drm: rockchip: cdn-dp: Disable CDN DP on disconnect
+Subject: drm: rockchip: cdn-dp: Disable CDN DP on disconnect
 
 Why not?
 

@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Wed, 22 Sep 2021 19:30:39 +0200
-Subject: [PATCH 02/18] arm64: dts: rk3399-pinephone-pro: Fixup DT validation
+Subject: arm64: dts: rk3399-pinephone-pro: Fixup DT validation
  issues
 
 Fixes:

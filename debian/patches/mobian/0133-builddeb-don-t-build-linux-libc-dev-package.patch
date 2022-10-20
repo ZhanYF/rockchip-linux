@@ -1,6 +1,6 @@
 From: Arnaud Ferraris <arnaud.ferraris@gmail.com>
 Date: Sun, 2 May 2021 18:57:20 +0200
-Subject: [PATCH] builddeb: don't build linux-libc-dev package
+Subject: builddeb: don't build linux-libc-dev package
 
 ---
  scripts/package/builddeb | 3 ---

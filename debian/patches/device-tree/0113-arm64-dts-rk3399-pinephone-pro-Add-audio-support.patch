@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Wed, 24 Nov 2021 01:58:45 +0100
-Subject: [PATCH 18/18] arm64: dts: rk3399-pinephone-pro: Add audio support
+Subject: arm64: dts: rk3399-pinephone-pro: Add audio support
 
 The codec is complicated, good luck! :D
 

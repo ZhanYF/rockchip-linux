@@ -1,6 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Fri, 22 Oct 2021 18:09:09 +0200
-Subject: [PATCH 19/36] clk: rk3399: Export SCLK_CIF_OUT_SRC to device tree
+Subject: clk: rk3399: Export SCLK_CIF_OUT_SRC to device tree
 
 So that it can be used in assigned-clock-parents.
 
