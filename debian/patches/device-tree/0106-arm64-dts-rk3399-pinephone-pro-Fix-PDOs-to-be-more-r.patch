@@ -1,7 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Tue, 26 Oct 2021 01:30:14 +0200
-Subject: arm64: dts: rk3399-pinephone-pro: Fix PDOs to be more
- reasonable
+Subject: arm64: dts: rk3399-pinephone-pro: Fix PDOs to be more reasonable
 
 Let's not overtax the battery and provide only 4.5W to external devices.
 Even that may be too much, given what PPP can consume by itself.

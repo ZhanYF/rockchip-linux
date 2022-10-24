@@ -1,7 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Tue, 16 Nov 2021 21:19:42 +0100
-Subject: drm: panel: hx8394: Fix mode clock for the pinephone
- pro panel
+Subject: drm: panel: hx8394: Fix mode clock for the pinephone pro panel
 
 The actual rate that was set by CRU was 66.333 MHz The panel does
 not actually work at 69 MHz, now that CRU can generate the requested

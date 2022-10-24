@@ -1,7 +1,6 @@
 From: =?utf-8?q?Kamil_Trzci=C5=84ski?= <ayufan@ayufan.eu>
 Date: Sat, 2 Jan 2021 12:46:14 +0100
-Subject: arm64: dts: rk3399-pinephone-pro: Add support for
- Pinephone Pro
+Subject: arm64: dts: rk3399-pinephone-pro: Add support for Pinephone Pro
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
