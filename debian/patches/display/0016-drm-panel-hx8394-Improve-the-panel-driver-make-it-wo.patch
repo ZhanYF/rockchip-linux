@@ -1,7 +1,7 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Sun, 17 Oct 2021 18:03:05 +0200
-Subject: drm: panel: hx8394: Improve the panel driver (make it
- work with DSI fixes)
+Subject: drm: panel: hx8394: Improve the panel driver (make it work with DSI
+ fixes)
 
 Powerup/down should be done in prepare/unprepare. Enable/disable is just
 for initialization. Fix timings and reset order according to datasheet.

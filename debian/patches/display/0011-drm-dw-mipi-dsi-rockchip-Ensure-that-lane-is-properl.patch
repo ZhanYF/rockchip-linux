@@ -1,7 +1,6 @@
 From: =?utf-8?q?Kamil_Trzci=C5=84ski?= <ayufan@ayufan.eu>
 Date: Fri, 8 Jan 2021 00:19:23 +0100
-Subject: drm: dw-mipi-dsi-rockchip: Ensure that lane is
- properly configured
+Subject: drm: dw-mipi-dsi-rockchip: Ensure that lane is properly configured
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit

@@ -1,7 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Tue, 23 Nov 2021 17:55:34 +0100
-Subject: usb: typec: fusb302: More useful of logging status on
- interrupt
+Subject: usb: typec: fusb302: More useful of logging status on interrupt
 
 This is just for debugging. It prints more info that's useful to
 see how hardware state changes in time.

@@ -1,7 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Mon, 18 Oct 2021 03:55:15 +0200
-Subject: arm64: dts: rk3399-pinephone-pro: Fix goodix
- toucscreen interrupts
+Subject: arm64: dts: rk3399-pinephone-pro: Fix goodix toucscreen interrupts
 
 The interrupt type read from the screen does not work well. It generates
 constant stream of interrupts.

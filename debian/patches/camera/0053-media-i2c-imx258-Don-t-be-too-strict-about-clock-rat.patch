@@ -1,7 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Fri, 22 Oct 2021 18:11:26 +0200
-Subject: media: i2c: imx258: Don't be too strict about clock
- rate
+Subject: media: i2c: imx258: Don't be too strict about clock rate
 
 On Pinephone Pro, we are not able to set 19.2MHz precisely.
 Allow some slack in clock rate.

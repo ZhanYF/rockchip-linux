@@ -1,7 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Tue, 26 Oct 2021 01:29:50 +0200
-Subject: arm64: dts: rk3399-pinephone-pro: Cleanup some USB
- nodes whitespace
+Subject: arm64: dts: rk3399-pinephone-pro: Cleanup some USB nodes whitespace
 
 Signed-off-by: Ondrej Jirman <megous@megous.com>
 ---

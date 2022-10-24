@@ -1,7 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Sun, 7 Nov 2021 19:24:40 +0100
-Subject: usb: typec: typec-extcon: Add typec -> extcon bridge
- driver
+Subject: usb: typec: typec-extcon: Add typec -> extcon bridge driver
 
 This bridge connects standard Type C port interfaces for controling
 muxes, switches and usb roles to muxes, switches and usb role

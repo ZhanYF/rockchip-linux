@@ -1,7 +1,7 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Mon, 18 Oct 2021 03:58:56 +0200
-Subject: arm64: dts: rk3399-pinephone-pro: Power off goodix
- touchscreen in sleep
+Subject: arm64: dts: rk3399-pinephone-pro: Power off goodix touchscreen in
+ sleep
 
 Otherwise it consumes 200mW of power when touched during system sleep.
 It can't wake up the phone anyway.

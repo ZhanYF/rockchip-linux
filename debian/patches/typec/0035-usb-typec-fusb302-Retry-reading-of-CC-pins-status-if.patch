@@ -1,7 +1,7 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Tue, 23 Nov 2021 17:53:27 +0100
-Subject: usb: typec: fusb302: Retry reading of CC pins status
- if activity is detected
+Subject: usb: typec: fusb302: Retry reading of CC pins status if activity is
+ detected
 
 This is just for testing, to see if this ever happens. It should
 also help when this happens.
