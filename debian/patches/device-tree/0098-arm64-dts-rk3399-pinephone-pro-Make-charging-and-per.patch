@@ -1,7 +1,7 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Mon, 11 Oct 2021 17:32:31 +0200
-Subject: arm64: dts: rk3399-pinephone-pro: Make charging and
- peripheral mode work
+Subject: arm64: dts: rk3399-pinephone-pro: Make charging and peripheral mode
+ work
 
 Signed-of-by: Ondrej Jirman <megous@megous.com>
 ---

@@ -1,7 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Sun, 7 Nov 2021 19:39:20 +0100
-Subject: arm64: dts: rk3399-pinephone-pro: Full support for
- Type-C port
+Subject: arm64: dts: rk3399-pinephone-pro: Full support for Type-C port
 
 Connect various devices to a extcon bridge. Fix some incorrectly
 specified regulators. With this patch, this is now supported:

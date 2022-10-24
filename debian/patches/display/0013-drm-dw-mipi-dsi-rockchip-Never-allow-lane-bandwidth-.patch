@@ -1,7 +1,7 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Tue, 16 Nov 2021 21:16:26 +0100
-Subject: drm: dw-mipi-dsi-rockchip: Never allow lane bandwidth
- to be less than requested
+Subject: drm: dw-mipi-dsi-rockchip: Never allow lane bandwidth to be less
+ than requested
 
 Bandwidth can be less than requested in some cases, because the search
 for best values only checked for absolute difference from ideal value.

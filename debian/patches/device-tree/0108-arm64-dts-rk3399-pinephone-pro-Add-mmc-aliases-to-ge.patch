@@ -1,7 +1,7 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Tue, 2 Nov 2021 13:29:29 +0100
-Subject: arm64: dts: rk3399-pinephone-pro: Add mmc aliases to
- get stable numbering
+Subject: arm64: dts: rk3399-pinephone-pro: Add mmc aliases to get stable
+ numbering
 
 It's better to have stable meanings for /dev/mmcblk* device files.
 

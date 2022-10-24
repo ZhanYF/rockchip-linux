@@ -1,7 +1,6 @@
 From: Ondrej Jirman <megous@megous.com>
 Date: Sun, 7 Nov 2021 19:28:27 +0100
-Subject: usb: typec: fusb302: Set the current before enabling
- pullups
+Subject: usb: typec: fusb302: Set the current before enabling pullups
 
 This seems more reasonable and should avoid short period of incorrect
 current setting being applied to CC pin.
