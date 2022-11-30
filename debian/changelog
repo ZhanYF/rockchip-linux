@@ -1,3 +1,14 @@
+linux-6.1-rockchip (6.1~rc7+rockchip-2) unstable; urgency=medium
+
+  * d/patches: fix bug reporting 0% battery charge.
+    The threshold for the "low battery" condition is set too low, causing
+    issues where the battery driver reports 0% remaining charge while it's
+    actually way higher. This in turn causes g-s-d to auto-shutdown the
+    device even when active. Let's revert to the previous threshold value so
+    we don't run into this problem.
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Wed, 30 Nov 2022 17:39:12 +0100
+
 linux-6.1-rockchip (6.1~rc7+rockchip-1) unstable; urgency=medium
 
   * Initial 6.1 release
