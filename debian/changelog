@@ -1,3 +1,15 @@
+linux-6.1-rockchip (6.1~rc8+rockchip-2) unstable; urgency=medium
+
+  [ undef ]
+  * d/patches: Add thermal throttling for the PPP
+
+  [ Arnaud Ferraris ]
+  * d/patches: add ATH9K_HTC and CARL9170 drivers.
+    Add a few more USB WLAN adapter drivers at the same time.
+    Fixes #23
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Wed, 07 Dec 2022 10:33:45 +0100
+
 linux-6.1-rockchip (6.1~rc8+rockchip-1) unstable; urgency=medium
 
   * Initial 6.1 release
