@@ -4,7 +4,7 @@ include /usr/share/dpkg/pkg-info.mk
 
 srctree ?= .
 
-KVER=6.1
+KVER=6.2
 KVENDOR=rockchip
 KREL=$(KVER)-$(KVENDOR)
 

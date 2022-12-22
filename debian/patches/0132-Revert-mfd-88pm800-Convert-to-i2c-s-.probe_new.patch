@@ -1,0 +1,33 @@
+From: undef <gitlab@undef.tools>
+Date: Sun, 26 Feb 2023 04:31:47 +0000
+Subject: Revert "mfd: 88pm800: Convert to i2c's .probe_new()"
+
+This reverts commit b9420da8847874976d25489186f57ec3215ff77c.
+This commit breaks wifi on the PPP
+---
+ drivers/mfd/88pm800.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/mfd/88pm800.c b/drivers/mfd/88pm800.c
+index 4d9b61b..7238d7ac7 100644
+--- a/drivers/mfd/88pm800.c
++++ b/drivers/mfd/88pm800.c
+@@ -527,7 +527,8 @@ static int device_800_init(struct pm80x_chip *chip,
+ 	return ret;
+ }
+ 
+-static int pm800_probe(struct i2c_client *client)
++static int pm800_probe(struct i2c_client *client,
++				 const struct i2c_device_id *id)
+ {
+ 	int ret = 0;
+ 	struct pm80x_chip *chip;
+@@ -597,7 +598,7 @@ static struct i2c_driver pm800_driver = {
+ 		.name = "88PM800",
+ 		.pm = pm_sleep_ptr(&pm80x_pm_ops),
+ 		},
+-	.probe_new = pm800_probe,
++	.probe = pm800_probe,
+ 	.remove = pm800_remove,
+ 	.id_table = pm80x_id_table,
+ };

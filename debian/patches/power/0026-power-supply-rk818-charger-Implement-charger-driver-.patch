@@ -17,12 +17,12 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  create mode 100644 drivers/power/supply/rk818_charger.c
 
 diff --git a/drivers/mfd/rk808.c b/drivers/mfd/rk808.c
-index 6f6eaa8..4807360 100644
+index e5af031..1a010a2 100644
 --- a/drivers/mfd/rk808.c
 +++ b/drivers/mfd/rk808.c
-@@ -221,6 +221,7 @@ static const struct mfd_cell rk818s[] = {
- 	{ .name = "rk808-clkout", },
- 	{ .name = "rk808-regulator", },
+@@ -227,6 +227,7 @@ static const struct mfd_cell rk818s[] = {
+ 	{ .name = "rk808-clkout", .id = PLATFORM_DEVID_NONE, },
+ 	{ .name = "rk808-regulator", .id = PLATFORM_DEVID_NONE, },
  	{ .name = "rk818-battery", .of_compatible = "rockchip,rk818-battery", },
 +	{ .name = "rk818-charger", .of_compatible = "rockchip,rk818-charger", },
  	{
