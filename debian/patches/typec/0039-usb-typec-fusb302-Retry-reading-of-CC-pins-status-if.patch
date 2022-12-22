@@ -12,7 +12,7 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  1 file changed, 32 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
-index 46ac155..a19f487 100644
+index 3f82103..9bdee40 100644
 --- a/drivers/usb/typec/tcpm/fusb302.c
 +++ b/drivers/usb/typec/tcpm/fusb302.c
 @@ -1317,6 +1317,36 @@ static int fusb302_handle_togdone_snk(struct fusb302_chip *chip,
