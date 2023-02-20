@@ -11,10 +11,10 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-index 912eb4e..1a5deae 100644
+index 7901c3b..de384b3 100644
 --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-@@ -575,7 +575,7 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const struct drm_display_mode *mode,
+@@ -569,7 +569,7 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const struct drm_display_mode *mode,
  	mpclk = DIV_ROUND_UP(mode->clock, MSEC_PER_SEC);
  	if (mpclk) {
  		/* take 1 / 0.8, since mbps must big than bandwidth of RGB */

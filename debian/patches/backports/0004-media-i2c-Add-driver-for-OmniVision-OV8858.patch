@@ -26,10 +26,10 @@ Signed-off-by: Mauro Carvalho Chehab <mchehab@kernel.org>
  create mode 100644 drivers/media/i2c/ov8858.c
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index d4822ae..541553b 100644
+index 135d933..99207cb 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -15300,6 +15300,15 @@ T:	git git://linuxtv.org/media_tree.git
+@@ -15531,6 +15531,15 @@ T:	git git://linuxtv.org/media_tree.git
  F:	Documentation/devicetree/bindings/media/i2c/ov8856.yaml
  F:	drivers/media/i2c/ov8856.c
  
@@ -46,10 +46,10 @@ index d4822ae..541553b 100644
  M:	Paul J. Murphy <paul.j.murphy@intel.com>
  M:	Daniele Alessandrelli <daniele.alessandrelli@intel.com>
 diff --git a/drivers/media/i2c/Kconfig b/drivers/media/i2c/Kconfig
-index 7806d4b..424d4e4 100644
+index 8332418..12ba854 100644
 --- a/drivers/media/i2c/Kconfig
 +++ b/drivers/media/i2c/Kconfig
-@@ -619,6 +619,19 @@ config VIDEO_OV8856
+@@ -645,6 +645,19 @@ config VIDEO_OV8856
  	  To compile this driver as a module, choose M here: the
  	  module will be called ov8856.
  
@@ -70,10 +70,10 @@ index 7806d4b..424d4e4 100644
  	tristate "OmniVision OV8865 sensor support"
  	depends on I2C && PM && VIDEO_DEV
 diff --git a/drivers/media/i2c/Makefile b/drivers/media/i2c/Makefile
-index 0a29331..d44934f 100644
+index 4d6c052..b611a82 100644
 --- a/drivers/media/i2c/Makefile
 +++ b/drivers/media/i2c/Makefile
-@@ -94,6 +94,7 @@ obj-$(CONFIG_VIDEO_OV7670) += ov7670.o
+@@ -96,6 +96,7 @@ obj-$(CONFIG_VIDEO_OV7670) += ov7670.o
  obj-$(CONFIG_VIDEO_OV772X) += ov772x.o
  obj-$(CONFIG_VIDEO_OV7740) += ov7740.o
  obj-$(CONFIG_VIDEO_OV8856) += ov8856.o

@@ -26,7 +26,7 @@ Link: https://patchwork.freedesktop.org/patch/msgid/20230102230733.3506624-3-jav
  create mode 100644 drivers/gpu/drm/panel/panel-himax-hx8394.c
 
 diff --git a/drivers/gpu/drm/panel/Kconfig b/drivers/gpu/drm/panel/Kconfig
-index a582ddd..06a1b7b 100644
+index 737edcd..7ee9c83 100644
 --- a/drivers/gpu/drm/panel/Kconfig
 +++ b/drivers/gpu/drm/panel/Kconfig
 @@ -154,6 +154,18 @@ config DRM_PANEL_FEIYANG_FY07024DI26A30D
@@ -49,7 +49,7 @@ index a582ddd..06a1b7b 100644
  	tristate "Ilitek ILI9322 320x240 QVGA panels"
  	depends on OF && SPI
 diff --git a/drivers/gpu/drm/panel/Makefile b/drivers/gpu/drm/panel/Makefile
-index 34e7173..cab0745 100644
+index f8f9d9f..84c01ad 100644
 --- a/drivers/gpu/drm/panel/Makefile
 +++ b/drivers/gpu/drm/panel/Makefile
 @@ -13,6 +13,7 @@ obj-$(CONFIG_DRM_PANEL_EBBG_FT8719) += panel-ebbg-ft8719.o

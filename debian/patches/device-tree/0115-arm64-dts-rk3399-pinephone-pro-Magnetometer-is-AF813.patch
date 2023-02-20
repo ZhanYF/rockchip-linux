@@ -10,10 +10,10 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  1 file changed, 5 insertions(+), 18 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 9f88149..8309794 100644
+index 62e53b5..2b1beb6 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -947,25 +947,12 @@ accelerometer@68 {
+@@ -975,25 +975,12 @@ accelerometer@68 {
  			"0", "0", "1";
  	};
  

@@ -10,11 +10,11 @@ TODO: Sumarize Pinephone Pro HW here...
 Signed-of-by: Martijn Braam <martijn@brixit.nl>
 Signed-of-by: Kamil Trzciński <ayufan@ayufan.eu>
 ---
- .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 600 +++++++++++++++++++++
- 1 file changed, 600 insertions(+)
+ .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 556 +++++++++++++++++++++
+ 1 file changed, 556 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 2e058c3..6dfeaad 100644
+index a0795a2..1c168d1 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 @@ -10,7 +10,10 @@
@@ -102,7 +102,7 @@ index 2e058c3..6dfeaad 100644
 +		clocks = <&rk818 1>;
 +		clock-names = "ext_clock";
 +		pinctrl-names = "default";
-+		pinctrl-0 = <&wifi_enable_h>;
++		pinctrl-0 = <&wifi_enable_h_pin>;
 +		post-power-on-delay-ms = <100>;
 +		power-off-delay-us = <500000>;
 +
@@ -158,11 +158,10 @@ index 2e058c3..6dfeaad 100644
  	vcc3v3_sys: vcc3v3-sys-regulator {
  		compatible = "regulator-fixed";
  		regulator-name = "vcc3v3_sys";
-@@ -81,6 +193,49 @@ vcc1v8_codec: vcc1v8-codec-regulator {
- 		regulator-max-microvolt = <1800000>;
- 		vin-supply = <&vcc3v3_sys>;
+@@ -102,6 +214,48 @@ wifi_pwrseq: sdio-wifi-pwrseq {
+ 		/* WL_REG_ON on module */
+ 		reset-gpios = <&gpio0 RK_PB2 GPIO_ACTIVE_LOW>;
  	};
-+
 +	/* micro SD card power */
 +	vcc3v0_sd: vcc3v0-sd {
 +		compatible = "regulator-fixed";
@@ -207,8 +206,8 @@ index 2e058c3..6dfeaad 100644
 +	};
  };
  
- &cpu_l0 {
-@@ -107,10 +262,20 @@ &cpu_b1 {
+ &cpu_alert0 {
+@@ -135,10 +289,20 @@ &cpu_b1 {
  	cpu-supply = <&vdd_cpu_b>;
  };
  
@@ -229,7 +228,7 @@ index 2e058c3..6dfeaad 100644
  &i2c0 {
  	clock-frequency = <400000>;
  	i2c-scl-rising-time-ns = <168>;
-@@ -129,6 +294,8 @@ rk818: pmic@1c {
+@@ -157,6 +321,8 @@ rk818: pmic@1c {
  		rockchip,system-power-controller;
  		wakeup-source;
  
@@ -238,7 +237,7 @@ index 2e058c3..6dfeaad 100644
  		vcc1-supply = <&vcc_sys>;
  		vcc2-supply = <&vcc_sys>;
  		vcc3-supply = <&vcc_sys>;
-@@ -265,6 +432,51 @@ regulator-state-mem {
+@@ -293,6 +459,51 @@ regulator-state-mem {
  					regulator-on-in-suspend;
  				};
  			};
@@ -290,7 +289,7 @@ index 2e058c3..6dfeaad 100644
  		};
  	};
  
-@@ -326,6 +538,138 @@ opp07 {
+@@ -354,6 +565,138 @@ opp07 {
  	};
  };
  
@@ -429,7 +428,7 @@ index 2e058c3..6dfeaad 100644
  &io_domains {
  	bt656-supply = <&vcc1v8_dvp>;
  	audio-supply = <&vcca1v8_codec>;
-@@ -334,18 +678,89 @@ &io_domains {
+@@ -362,6 +705,43 @@ &io_domains {
  	status = "okay";
  };
  
@@ -473,26 +472,7 @@ index 2e058c3..6dfeaad 100644
  &pmu_io_domains {
  	pmu1830-supply = <&vcc_1v8>;
  	status = "okay";
- };
- 
- &pinctrl {
-+	bt {
-+		bt_enable_h: bt-enable-h {
-+			rockchip,pins = <0 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		bt_host_wake_l: bt-host-wake-l {
-+			rockchip,pins = <0 RK_PA4 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+
-+		bt_wake_l: bt-wake-l {
-+			rockchip,pins = <2 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	buttons {
- 		pwrbtn_pin: pwrbtn-pin {
- 			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_up>;
+@@ -374,6 +754,26 @@ pwrbtn_pin: pwrbtn-pin {
  		};
  	};
  
@@ -519,20 +499,13 @@ index 2e058c3..6dfeaad 100644
  	pmic {
  		pmic_int_l: pmic-int-l {
  			rockchip,pins = <1 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>;
-@@ -360,6 +775,39 @@ vsel2_pin: vsel2-pin {
+@@ -393,6 +793,31 @@ wifi_enable_h_pin: wifi-enable-h-pin {
+ 			rockchip,pins = <0 RK_PB2 RK_FUNC_GPIO &pcfg_pull_none>;
  		};
  	};
- 
 +	sdcard {
 +		sdmmc0_pwr_h: sdmmc0-pwr-h {
 +			rockchip,pins = <0 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+	};
-+
-+	sdio-pwrseq {
-+		wifi_enable_h: wifi-enable-h {
-+			rockchip,pins = <0 RK_PB2 RK_FUNC_GPIO &pcfg_pull_none>;
 +		};
 +	};
 +
@@ -555,12 +528,11 @@ index 2e058c3..6dfeaad 100644
 +			rockchip,pins = <3 RK_PA5 RK_FUNC_GPIO &pcfg_pull_down>;
 +		};
 +	};
-+
+ 
  	sound {
  		vcc1v8_codec_en: vcc1v8-codec-en {
- 			rockchip,pins = <3 RK_PA4 RK_FUNC_GPIO &pcfg_pull_down>;
-@@ -367,6 +815,37 @@ vcc1v8_codec_en: vcc1v8-codec-en {
- 	};
+@@ -429,6 +854,37 @@ &sdio0 {
+ 	status = "okay";
  };
  
 +&pwm0 {
@@ -597,7 +569,7 @@ index 2e058c3..6dfeaad 100644
  &sdmmc {
  	bus-width = <4>;
  	cap-sd-highspeed;
-@@ -387,12 +866,133 @@ &sdhci {
+@@ -449,12 +905,65 @@ &sdhci {
  	status = "okay";
  };
  
@@ -660,27 +632,10 @@ index 2e058c3..6dfeaad 100644
 +	};
 +};
 +
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_xfer &uart0_cts &uart0_rts>;
-+	uart-has-rtscts;
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "brcm,bcm4345c5";
-+		clocks = <&rk818 1>;
-+		clock-names = "lpo";
-+		device-wakeup-gpios = <&gpio2 RK_PD2 GPIO_ACTIVE_HIGH>;
-+		host-wakeup-gpios = <&gpio0 RK_PA4 GPIO_ACTIVE_HIGH>;
-+		max-speed = <1500000>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&bt_host_wake_l &bt_wake_l &bt_enable_h>;
-+		shutdown-gpios = <&gpio0 RK_PB1 GPIO_ACTIVE_HIGH>;
-+		vbat-supply = <&vcc3v3_sys>;
-+		vddio-supply = <&vcc_1v8>;
-+	};
-+};
-+
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_xfer &uart0_cts &uart0_rts>;
+@@ -479,3 +988,50 @@ bluetooth {
  &uart2 {
  	status = "okay";
  };

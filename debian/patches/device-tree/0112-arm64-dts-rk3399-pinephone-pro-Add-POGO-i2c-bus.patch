@@ -6,14 +6,14 @@ I2C5 is exposed on POGO header. Enable it.
 
 Signed-off-by: Ondrej Jirman <megous@megous.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 94ee966..fcb60ba1 100644
+index ddacf61..42e2790 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -969,6 +969,14 @@ ak09911: compass@c {
+@@ -997,6 +997,14 @@ ak09911: compass@c {
  	};
  };
  
@@ -28,10 +28,11 @@ index 94ee966..fcb60ba1 100644
  &i2s0 {
  	rockchip,playback-channels = <2>;
  	rockchip,capture-channels = <2>;
-@@ -1164,6 +1172,12 @@ vsel2_pin: vsel2-pin {
+@@ -1183,6 +1191,13 @@ wifi_enable_h_pin: wifi-enable-h-pin {
+ 			rockchip,pins = <0 RK_PB2 RK_FUNC_GPIO &pcfg_pull_none>;
  		};
  	};
- 
++
 +	pogo {
 +		pogo_int_pin: pogo-int {
 +			rockchip,pins = <3 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
