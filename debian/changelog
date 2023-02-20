@@ -1,5 +1,5 @@
-linux-6.1-rockchip (6.1+rockchip-1) unstable; urgency=medium
+linux-6.2-rockchip (6.2+rockchip-1) unstable; urgency=medium
 
-  * Initial 6.1 release
+  * d/patches: rebase on 6.2
 
- -- Arnaud Ferraris <aferraris@debian.org>  Mon, 12 Dec 2022 12:03:26 +0100
+ -- Undef <debian@undef.tools>  Mon, 20 Feb 2023 09:32:05 +0000
