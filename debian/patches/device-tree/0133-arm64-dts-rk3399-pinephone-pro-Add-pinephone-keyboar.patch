@@ -1,0 +1,32 @@
+From: Nathan Schulte <nmschulte@desmas.net>
+Date: Fri, 3 Mar 2023 23:24:34 -0600
+Subject: arm64: dts: rk3399-pinephone-pro: Add pinephone keyboard power
+ support
+
+for ppkb-manager
+
+Signed-off-by: Nathan Schulte <nmschulte@desmas.net>
+---
+ arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+index b084d08..365e6ad 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+@@ -506,6 +506,15 @@ sgm3140_flash: led {
+ 			flash-max-timeout-us = <250000>;
+ 		};
+ 	};
++
++	keyboard-power {
++		compatible = "megi,pinephone-keyboard-power-manager";
++		phone-battery = "rk818-battery";
++		phone-usb = "rk818-usb";
++		kb-battery = "ip5xxx-battery";
++		kb-boost = "ip5xxx-boost";
++		kb-usb = "ip5xxx-usb";
++	};
+ };
+ 
+ &cpu_alert0 {
