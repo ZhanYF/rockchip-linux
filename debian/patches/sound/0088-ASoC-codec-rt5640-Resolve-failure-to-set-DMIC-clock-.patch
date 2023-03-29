@@ -14,16 +14,16 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  1 file changed, 3 insertions(+)
 
 diff --git a/sound/soc/codecs/rt5640.c b/sound/soc/codecs/rt5640.c
-index 81446608..9b8d84c 100644
+index ab1e1b3..c96668b7 100644
 --- a/sound/soc/codecs/rt5640.c
 +++ b/sound/soc/codecs/rt5640.c
-@@ -1840,6 +1840,9 @@ static int rt5640_set_dai_sysclk(struct snd_soc_dai *dai,
- 	unsigned int reg_val = 0;
+@@ -1841,6 +1841,9 @@ static int rt5640_set_dai_sysclk(struct snd_soc_dai *dai,
  	unsigned int pll_bit = 0;
+ 	int ret;
  
 +	if (freq == 0)
 +		return 0;
 +
  	switch (clk_id) {
  	case RT5640_SCLK_S_MCLK:
- 		reg_val |= RT5640_SCLK_SRC_MCLK;
+ 		ret = clk_set_rate(rt5640->mclk, freq);

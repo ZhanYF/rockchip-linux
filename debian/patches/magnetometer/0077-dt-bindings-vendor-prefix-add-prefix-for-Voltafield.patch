@@ -12,10 +12,10 @@ Signed-off-by: Icenowy Zheng <icenowy@aosc.io>
  1 file changed, 2 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 70ffb37..401c9bc 100644
+index ed64e06..06c0888 100644
 --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
 +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -1358,6 +1358,8 @@ patternProperties:
+@@ -1382,6 +1382,8 @@ patternProperties:
      description: Tronsmart
    "^truly,.*":
      description: Truly Semiconductors Limited
