@@ -15,10 +15,10 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  4 files changed, 94 insertions(+), 31 deletions(-)
 
 diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
-index 26d9bd01..7b62864 100644
+index a0d7524..0ea1860 100644
 --- a/drivers/power/supply/Kconfig
 +++ b/drivers/power/supply/Kconfig
-@@ -917,13 +917,6 @@ config BATTERY_UG3105
+@@ -933,13 +933,6 @@ config BATTERY_UG3105
  	  Since Linux does not monitor coulomb-counter changes while the
  	  device is off or suspended, the functionality of this driver is
  	  limited to reporting capacity only.
@@ -33,10 +33,10 @@ index 26d9bd01..7b62864 100644
  config CHARGER_RK818
  	bool "RK818 Charger driver"
 diff --git a/drivers/power/supply/Makefile b/drivers/power/supply/Makefile
-index 3b9ea83..9d286e2 100644
+index 92e993c..fc03016 100644
 --- a/drivers/power/supply/Makefile
 +++ b/drivers/power/supply/Makefile
-@@ -110,5 +110,4 @@ obj-$(CONFIG_BATTERY_ACER_A500)	+= acer_a500_battery.o
+@@ -109,5 +109,4 @@ obj-$(CONFIG_BATTERY_ACER_A500)	+= acer_a500_battery.o
  obj-$(CONFIG_BATTERY_SURFACE)	+= surface_battery.o
  obj-$(CONFIG_CHARGER_SURFACE)	+= surface_charger.o
  obj-$(CONFIG_BATTERY_UG3105)	+= ug3105_battery.o

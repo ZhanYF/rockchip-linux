@@ -6,11 +6,11 @@ This prepares the driver for runtime PM and sleep implementation.
 
 Signed-off-by: Ondrej Jirman <megi@xff.cz>
 ---
- drivers/iio/magnetometer/af8133j.c | 161 +++++++++++++++++--------------------
- 1 file changed, 72 insertions(+), 89 deletions(-)
+ drivers/iio/magnetometer/af8133j.c | 165 ++++++++++++++++---------------------
+ 1 file changed, 73 insertions(+), 92 deletions(-)
 
 diff --git a/drivers/iio/magnetometer/af8133j.c b/drivers/iio/magnetometer/af8133j.c
-index 223b9e4..3ec4a40 100644
+index f71b413..5fc6848 100644
 --- a/drivers/iio/magnetometer/af8133j.c
 +++ b/drivers/iio/magnetometer/af8133j.c
 @@ -4,8 +4,6 @@
@@ -147,7 +147,7 @@ index 223b9e4..3ec4a40 100644
  
  	.reg_bits = 8,
  	.val_bits = 8,
-@@ -215,49 +242,43 @@ static int af8133j_probe(struct i2c_client *client,
+@@ -214,49 +241,43 @@ static int af8133j_probe(struct i2c_client *client)
  	struct af8133j_data *data;
  	struct iio_dev *indio_dev;
  	struct regmap *regmap;
@@ -219,7 +219,7 @@ index 223b9e4..3ec4a40 100644
  	if (ret)
  		return ret;
  
-@@ -267,48 +288,12 @@ static int af8133j_probe(struct i2c_client *client,
+@@ -266,60 +287,20 @@ static int af8133j_probe(struct i2c_client *client)
  	indio_dev->num_channels = ARRAY_SIZE(af8133j_channels);
  	indio_dev->modes = INDIO_DIRECT_MODE;
  
@@ -270,14 +270,17 @@ index 223b9e4..3ec4a40 100644
 -	return ret;
  }
  
- static void af8133j_remove(struct i2c_client *client)
-@@ -316,9 +301,7 @@ static void af8133j_remove(struct i2c_client *client)
+-static int af8133j_remove(struct i2c_client *client)
++static void af8133j_remove(struct i2c_client *client)
+ {
  	struct iio_dev *indio_dev = i2c_get_clientdata(client);
  	struct af8133j_data *data = iio_priv(indio_dev);
  
 -	gpiod_set_value_cansleep(data->reset_gpiod, 0);
 -	regulator_disable(data->dvdd);
 -	regulator_disable(data->avdd);
+-
+-	return 0;
 +	af8133j_power_down(data);
  }
  
