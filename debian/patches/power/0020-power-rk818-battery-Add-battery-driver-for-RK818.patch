@@ -82,10 +82,10 @@ index 05b8a4e..5f61485 100644
  		.name = "rk808-rtc",
  		.num_resources = ARRAY_SIZE(rtc_resources),
 diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
-index 0bbfe6a..75d5c20 100644
+index c78be9f..d172005 100644
 --- a/drivers/power/supply/Kconfig
 +++ b/drivers/power/supply/Kconfig
-@@ -917,5 +917,12 @@ config BATTERY_UG3105
+@@ -933,5 +933,12 @@ config BATTERY_UG3105
  	  Since Linux does not monitor coulomb-counter changes while the
  	  device is off or suspended, the functionality of this driver is
  	  limited to reporting capacity only.
@@ -99,10 +99,10 @@ index 0bbfe6a..75d5c20 100644
  
  endif # POWER_SUPPLY
 diff --git a/drivers/power/supply/Makefile b/drivers/power/supply/Makefile
-index 0ee8653..dcea0e7 100644
+index 4adbfba..b4165c2 100644
 --- a/drivers/power/supply/Makefile
 +++ b/drivers/power/supply/Makefile
-@@ -110,3 +110,4 @@ obj-$(CONFIG_BATTERY_ACER_A500)	+= acer_a500_battery.o
+@@ -109,3 +109,4 @@ obj-$(CONFIG_BATTERY_ACER_A500)	+= acer_a500_battery.o
  obj-$(CONFIG_BATTERY_SURFACE)	+= surface_battery.o
  obj-$(CONFIG_CHARGER_SURFACE)	+= surface_charger.o
  obj-$(CONFIG_BATTERY_UG3105)	+= ug3105_battery.o

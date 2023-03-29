@@ -11,7 +11,7 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  1 file changed, 37 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/iio/magnetometer/af8133j.c b/drivers/iio/magnetometer/af8133j.c
-index ef74b4c..7a0e16f 100644
+index 5b84859..24656f0 100644
 --- a/drivers/iio/magnetometer/af8133j.c
 +++ b/drivers/iio/magnetometer/af8133j.c
 @@ -16,6 +16,8 @@
@@ -81,7 +81,7 @@ index ef74b4c..7a0e16f 100644
  static const struct regmap_config af8133j_regmap_config = {
  	.name = "af8133j_regmap",
  
-@@ -317,6 +347,11 @@ static int af8133j_probe(struct i2c_client *client,
+@@ -316,6 +346,11 @@ static int af8133j_probe(struct i2c_client *client)
  	indio_dev->num_channels = ARRAY_SIZE(af8133j_channels);
  	indio_dev->modes = INDIO_DIRECT_MODE;
  

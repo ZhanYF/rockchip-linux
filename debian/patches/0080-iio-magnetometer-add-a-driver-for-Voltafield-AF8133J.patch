@@ -12,12 +12,12 @@ Signed-off-by: Shoji Keita <awaittrot@shjk.jp>
 ---
  drivers/iio/magnetometer/Kconfig   |  12 ++
  drivers/iio/magnetometer/Makefile  |   1 +
- drivers/iio/magnetometer/af8133j.c | 350 +++++++++++++++++++++++++++++++++++++
- 3 files changed, 363 insertions(+)
+ drivers/iio/magnetometer/af8133j.c | 351 +++++++++++++++++++++++++++++++++++++
+ 3 files changed, 364 insertions(+)
  create mode 100644 drivers/iio/magnetometer/af8133j.c
 
 diff --git a/drivers/iio/magnetometer/Kconfig b/drivers/iio/magnetometer/Kconfig
-index b91fc5e..9b3afa5 100644
+index 38532d8..cd2917d 100644
 --- a/drivers/iio/magnetometer/Kconfig
 +++ b/drivers/iio/magnetometer/Kconfig
 @@ -6,6 +6,18 @@
@@ -40,7 +40,7 @@ index b91fc5e..9b3afa5 100644
  	tristate "Asahi Kasei AK8974 3-Axis Magnetometer"
  	depends on I2C
 diff --git a/drivers/iio/magnetometer/Makefile b/drivers/iio/magnetometer/Makefile
-index b9f45b7..9edffdc 100644
+index b1c784e..ec5c46f 100644
 --- a/drivers/iio/magnetometer/Makefile
 +++ b/drivers/iio/magnetometer/Makefile
 @@ -4,6 +4,7 @@
@@ -53,10 +53,10 @@ index b9f45b7..9edffdc 100644
  obj-$(CONFIG_BMC150_MAGN) += bmc150_magn.o
 diff --git a/drivers/iio/magnetometer/af8133j.c b/drivers/iio/magnetometer/af8133j.c
 new file mode 100644
-index 00000000..223b9e4
+index 00000000..f71b413
 --- /dev/null
 +++ b/drivers/iio/magnetometer/af8133j.c
-@@ -0,0 +1,350 @@
+@@ -0,0 +1,351 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
 + * af8133j.c - Voltafield AF8133J magnetometer driver
@@ -268,8 +268,7 @@ index 00000000..223b9e4
 +	.cache_type = REGCACHE_NONE,
 +};
 +
-+static int af8133j_probe(struct i2c_client *client,
-+			  const struct i2c_device_id *id)
++static int af8133j_probe(struct i2c_client *client)
 +{
 +	struct af8133j_data *data;
 +	struct iio_dev *indio_dev;
@@ -370,7 +369,7 @@ index 00000000..223b9e4
 +	return ret;
 +}
 +
-+static void af8133j_remove(struct i2c_client *client)
++static int af8133j_remove(struct i2c_client *client)
 +{
 +	struct iio_dev *indio_dev = i2c_get_clientdata(client);
 +	struct af8133j_data *data = iio_priv(indio_dev);
@@ -378,6 +377,8 @@ index 00000000..223b9e4
 +	gpiod_set_value_cansleep(data->reset_gpiod, 0);
 +	regulator_disable(data->dvdd);
 +	regulator_disable(data->avdd);
++
++	return 0;
 +}
 +
 +static const struct of_device_id af8133j_of_match[] = {
