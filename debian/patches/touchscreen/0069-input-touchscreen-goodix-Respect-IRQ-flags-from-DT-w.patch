@@ -12,7 +12,7 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  2 files changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/input/touchscreen/goodix.c b/drivers/input/touchscreen/goodix.c
-index a8fbfbd..b6902bd 100644
+index e6d054e..ef5ebeb 100644
 --- a/drivers/input/touchscreen/goodix.c
 +++ b/drivers/input/touchscreen/goodix.c
 @@ -512,9 +512,13 @@ static void goodix_free_irq(struct goodix_ts_data *ts)
