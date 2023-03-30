@@ -17,22 +17,22 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  create mode 100644 drivers/power/supply/rk818_charger.c
 
 diff --git a/drivers/mfd/rk808.c b/drivers/mfd/rk808.c
-index e5af031..1a010a2 100644
+index 7a38e8c..7bd28b9 100644
 --- a/drivers/mfd/rk808.c
 +++ b/drivers/mfd/rk808.c
-@@ -227,6 +227,7 @@ static const struct mfd_cell rk818s[] = {
- 	{ .name = "rk808-clkout", .id = PLATFORM_DEVID_NONE, },
+@@ -228,6 +228,7 @@ static const struct mfd_cell rk818s[] = {
  	{ .name = "rk808-regulator", .id = PLATFORM_DEVID_NONE, },
+ 	{ .name = "rk808-clkout", },
  	{ .name = "rk818-battery", .of_compatible = "rockchip,rk818-battery", },
 +	{ .name = "rk818-charger", .of_compatible = "rockchip,rk818-charger", },
  	{
  		.name = "rk808-rtc",
  		.num_resources = ARRAY_SIZE(rtc_resources),
 diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
-index d172005..a0d7524 100644
+index 73c4042..7348610 100644
 --- a/drivers/power/supply/Kconfig
 +++ b/drivers/power/supply/Kconfig
-@@ -941,4 +941,12 @@ config BATTERY_RK818
+@@ -942,4 +942,12 @@ config BATTERY_RK818
  	  If you say yes here you will get support for the battery of RK818 PMIC.
  	  This driver can give support for Rk818 Battery Charge Interface.
  
