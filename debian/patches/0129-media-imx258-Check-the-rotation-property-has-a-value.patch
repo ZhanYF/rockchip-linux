@@ -1,0 +1,35 @@
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+Date: Wed, 23 May 2018 05:33:32 -0400
+Subject: media: imx258: Check the rotation property has a value of 180
+
+The driver only supports streaming images flipped horizontally and
+vertically. In order to ensure that all current users will be fine if or
+when support for upright streaming is added, require the presence of the
+"rotation" control now.
+
+Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+Tested-by: "Lai, Jim" <jim.lai@intel.com>
+Signed-off-by: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
+---
+ drivers/media/i2c/imx258.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/media/i2c/imx258.c b/drivers/media/i2c/imx258.c
+index 1697307..21ad028 100644
+--- a/drivers/media/i2c/imx258.c
++++ b/drivers/media/i2c/imx258.c
+@@ -1499,6 +1499,14 @@ static int imx258_probe(struct i2c_client *client)
+ 	// but we now just configure the clock to expected value before power on
+ 	// if possible
+ 
++	/*
++	 * Check that the device is mounted upside down. The driver only
++	 * supports a single pixel order right now.
++	 */
++	ret = device_property_read_u32(&client->dev, "rotation", &val);
++	if (ret || val != 180)
++		return -EINVAL;
++
+ 	for (i = 0; i < IMX258_SUPPLY_COUNT; i++)
+ 		imx258->supplies[i].supply = imx258_supply_names[i];
+ 	ret = devm_regulator_bulk_get(&client->dev,
