@@ -10,7 +10,7 @@ a tangible difference on the Librem 5, so enable it by default.
  1 file changed, 2 insertions(+)
 
 diff --git a/arch/arm64/configs/rockchip_defconfig b/arch/arm64/configs/rockchip_defconfig
-index 3ea019d..38d776d 100644
+index 8d20196d..cdcc877 100644
 --- a/arch/arm64/configs/rockchip_defconfig
 +++ b/arch/arm64/configs/rockchip_defconfig
 @@ -161,6 +161,8 @@ CONFIG_CMA_SYSFS=y
