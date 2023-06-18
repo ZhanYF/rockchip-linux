@@ -1,3 +1,17 @@
+linux-6.3-rockchip (6.3.8+rockchip-1) unstable; urgency=medium
+
+  [ Julian ]
+  * Add support for the PineTab2
+
+  [ Arnaud Ferraris ]
+  * d/patches: rebuild `rockchip_defconfig` using `make savedefconfig`
+
+  [ undef ]
+  * d/patches: rebase on 6.3.8
+  * d/gbp.conf: remove sign-tags config for mobot
+
+ -- Undef <debian@undef.tools>  Sun, 18 Jun 2023 11:20:59 +0000
+
 linux-6.3-rockchip (6.3+rockchip-1) unstable; urgency=medium
 
   [ undef ]
