@@ -3,16 +3,16 @@ Date: Mon, 29 Nov 2021 03:27:17 +0100
 Subject: arm64: configs: add rockchip_defconfig
 
 ---
- arch/arm64/configs/rockchip_defconfig | 2467 +++++++++++++++++++++++++++++++++
- 1 file changed, 2467 insertions(+)
+ arch/arm64/configs/rockchip_defconfig | 2468 +++++++++++++++++++++++++++++++++
+ 1 file changed, 2468 insertions(+)
  create mode 100644 arch/arm64/configs/rockchip_defconfig
 
 diff --git a/arch/arm64/configs/rockchip_defconfig b/arch/arm64/configs/rockchip_defconfig
 new file mode 100644
-index 0000000..e1a4cd9
+index 00000000..22589ae
 --- /dev/null
 +++ b/arch/arm64/configs/rockchip_defconfig
-@@ -0,0 +1,2467 @@
+@@ -0,0 +1,2468 @@
 +CONFIG_SYSVIPC=y
 +CONFIG_POSIX_MQUEUE=y
 +CONFIG_NO_HZ=y
@@ -1411,6 +1411,7 @@ index 0000000..e1a4cd9
 +CONFIG_SMS_SDIO_DRV=m
 +CONFIG_VIDEO_IMX258=m
 +CONFIG_VIDEO_NOON010PC30=m
++CONFIG_VIDEO_OV5648=m
 +CONFIG_VIDEO_OV7670=m
 +CONFIG_VIDEO_OV8858=m
 +CONFIG_VIDEO_SR030PC30=m
