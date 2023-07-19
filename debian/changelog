@@ -1,5 +1,5 @@
-linux-6.4-rockchip (6.4+rockchip-1) UNRELEASED; urgency=medium
+linux-6.4-rockchip (6.4.2+rockchip-1) unstable; urgency=medium
 
   * Initial 6.4 release
 
- -- Arnaud Ferraris <aferraris@debian.org>  Thu, 06 Oct 2022 14:38:14 +0200
+ -- Arnaud Ferraris <aferraris@debian.org>  Wed, 19 Jul 2023 13:36:29 +0200
