@@ -7,10 +7,10 @@ Subject: [PATCH] builddeb: don't build linux-libc-dev package
  1 file changed, 4 deletions(-)
 
 diff --git a/scripts/package/builddeb b/scripts/package/builddeb
-index 252faaa..f5bad6c 100755
+index 032774e..2657164 100755
 --- a/scripts/package/builddeb
 +++ b/scripts/package/builddeb
-@@ -227,8 +227,6 @@ do
+@@ -223,8 +223,6 @@ do
  		install_linux_image_dbg debian/linux-image-dbg debian/linux-image;;
  	linux-image-*|user-mode-linux-*)
  		install_linux_image debian/linux-image ${package};;
@@ -19,7 +19,7 @@ index 252faaa..f5bad6c 100755
  	linux-headers-*)
  		install_kernel_headers debian/linux-headers ${package#linux-headers-};;
  	esac
-@@ -241,8 +239,6 @@ do
+@@ -237,8 +235,6 @@ do
  		create_package ${package} debian/linux-image-dbg;;
  	linux-image-*|user-mode-linux-*)
  		create_package ${package} debian/linux-image;;
