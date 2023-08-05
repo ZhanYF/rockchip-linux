@@ -14,7 +14,7 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  2 files changed, 6 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
-index d68958e..ee73078 100644
+index 99963e7..3c73316 100644
 --- a/drivers/usb/dwc3/core.c
 +++ b/drivers/usb/dwc3/core.c
 @@ -781,6 +781,7 @@ static int dwc3_phy_power_on(struct dwc3 *dwc)
@@ -38,10 +38,10 @@ index d68958e..ee73078 100644
  
  	usb_phy_set_suspend(dwc->usb3_phy, 1);
 diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
-index 1f043c3..6a7bd50 100644
+index 59a31ca..6cc9092 100644
 --- a/drivers/usb/dwc3/core.h
 +++ b/drivers/usb/dwc3/core.h
-@@ -1165,6 +1165,7 @@ struct dwc3 {
+@@ -1162,6 +1162,7 @@ struct dwc3 {
  
  	struct phy		*usb2_generic_phy;
  	struct phy		*usb3_generic_phy;
