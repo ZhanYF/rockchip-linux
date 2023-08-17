@@ -35,7 +35,7 @@ index 2b9d6db..ba1fd11 100644
  	tristate "BOE TV101WUM and AUO KD101N80 45NA 1200x1920 panel"
  	depends on OF
 diff --git a/drivers/gpu/drm/panel/Makefile b/drivers/gpu/drm/panel/Makefile
-index ff16978..4debde63 100644
+index ff16978..4debde6 100644
 --- a/drivers/gpu/drm/panel/Makefile
 +++ b/drivers/gpu/drm/panel/Makefile
 @@ -5,6 +5,7 @@ obj-$(CONFIG_DRM_PANEL_ASUS_Z00T_TM5P5_NT35596) += panel-asus-z00t-tm5p5-n35596.
@@ -48,7 +48,7 @@ index ff16978..4debde63 100644
  obj-$(CONFIG_DRM_PANEL_LVDS) += panel-lvds.o
 diff --git a/drivers/gpu/drm/panel/panel-boe-th101mb31ig002-28a.c b/drivers/gpu/drm/panel/panel-boe-th101mb31ig002-28a.c
 new file mode 100644
-index 00000000..6081e18
+index 0000000..6081e18
 --- /dev/null
 +++ b/drivers/gpu/drm/panel/panel-boe-th101mb31ig002-28a.c
 @@ -0,0 +1,293 @@
