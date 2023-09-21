@@ -18,7 +18,7 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  1 file changed, 12 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-index 917e7995..4789024 100644
+index 917e799..4789024 100644
 --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
 @@ -542,8 +542,6 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const struct drm_display_mode *mode,
