@@ -1,3 +1,10 @@
+linux-6.6-rockchip (6.6~rc5+rockchip-1) unstable; urgency=medium
+
+  * Rebase on 6.6-rc5
+  * d/patches: fix front camera
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Tue, 10 Oct 2023 12:05:21 +0200
+
 linux-6.6-rockchip (6.6~rc3+rockchip-1) unstable; urgency=medium
 
   * Initial 6.6 release
