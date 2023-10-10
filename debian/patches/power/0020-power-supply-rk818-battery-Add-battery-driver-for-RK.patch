@@ -88,10 +88,10 @@ index 1a98fee..88a0272 100644
  
  static const struct regmap_config rk805_regmap_config = {
 diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
-index 663a1c4..e6142b5 100644
+index a61bb12..853bc17 100644
 --- a/drivers/power/supply/Kconfig
 +++ b/drivers/power/supply/Kconfig
-@@ -951,4 +951,12 @@ config CHARGER_QCOM_SMB2
+@@ -952,4 +952,12 @@ config CHARGER_QCOM_SMB2
  	  adds support for the SMB2 switch mode battery charger found
  	  in PMI8998 and related PMICs.
  

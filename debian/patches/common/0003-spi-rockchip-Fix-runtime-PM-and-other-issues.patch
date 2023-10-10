@@ -7,12 +7,11 @@ management, leaing to warnings during suspend/resume.
 
 Signed-off-by: Ondrej Jirman <megi@xff.cz>
 ---
- ...-rockchip-Fix-runtime-PM-and-other-issues.patch |   4 +-
- drivers/spi/spi-rockchip.c                         | 155 ++++++++++-----------
- 2 files changed, 78 insertions(+), 81 deletions(-)
+ drivers/spi/spi-rockchip.c | 155 ++++++++++++++++++++++-----------------------
+ 1 file changed, 76 insertions(+), 79 deletions(-)
 
 diff --git a/drivers/spi/spi-rockchip.c b/drivers/spi/spi-rockchip.c
-index 5b01009..bad1268 100644
+index 5b01009..27c5169 100644
 --- a/drivers/spi/spi-rockchip.c
 +++ b/drivers/spi/spi-rockchip.c
 @@ -199,6 +199,8 @@ struct rockchip_spi {

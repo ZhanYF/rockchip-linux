@@ -297,10 +297,10 @@ index 00000000..bee61a4
 +        };
 +    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index b199956..0b50f51 100644
+index 6c4cce4..cae8944 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -19966,7 +19966,7 @@ M:	Sakari Ailus <sakari.ailus@linux.intel.com>
+@@ -19960,7 +19960,7 @@ M:	Sakari Ailus <sakari.ailus@linux.intel.com>
  L:	linux-media@vger.kernel.org
  S:	Maintained
  T:	git git://linuxtv.org/media_tree.git

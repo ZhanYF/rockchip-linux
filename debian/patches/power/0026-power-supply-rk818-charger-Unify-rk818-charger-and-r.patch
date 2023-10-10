@@ -15,10 +15,10 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  4 files changed, 94 insertions(+), 32 deletions(-)
 
 diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
-index 0f457b0..f57fe3a 100644
+index c58fc2e..52777d7 100644
 --- a/drivers/power/supply/Kconfig
 +++ b/drivers/power/supply/Kconfig
-@@ -951,14 +951,6 @@ config CHARGER_QCOM_SMB2
+@@ -952,14 +952,6 @@ config CHARGER_QCOM_SMB2
  	  adds support for the SMB2 switch mode battery charger found
  	  in PMI8998 and related PMICs.
  
