@@ -1,0 +1,28 @@
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Date: Thu, 14 Sep 2023 21:16:14 +0300
+Subject: media: i2c: imx258: Drop check for reentrant .s_stream()
+
+The subdev .s_stream() operation shall not be called to start streaming
+on an already started subdev, or stop streaming on a stopped subdev.
+Remove the check that guards against that condition.
+
+Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+---
+ drivers/media/i2c/imx258.c | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/drivers/media/i2c/imx258.c b/drivers/media/i2c/imx258.c
+index ec7fcb8..a405742 100644
+--- a/drivers/media/i2c/imx258.c
++++ b/drivers/media/i2c/imx258.c
+@@ -1311,10 +1311,6 @@ static int imx258_set_stream(struct v4l2_subdev *sd, int enable)
+ 	int ret = 0;
+ 
+ 	mutex_lock(&imx258->mutex);
+-	if (imx258->streaming == enable) {
+-		mutex_unlock(&imx258->mutex);
+-		return 0;
+-	}
+ 
+ 	if (enable) {
+ 		ret = pm_runtime_resume_and_get(&client->dev);
