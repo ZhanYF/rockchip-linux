@@ -21,13 +21,13 @@ Signed-of-by: Kamil Trzciński <ayufan@ayufan.eu>
  create mode 100644 drivers/power/supply/rk818_battery.h
 
 diff --git a/drivers/mfd/rk8xx-core.c b/drivers/mfd/rk8xx-core.c
-index d02a930..8fdd73c 100644
+index 2747a29..e5200eb 100644
 --- a/drivers/mfd/rk8xx-core.c
 +++ b/drivers/mfd/rk8xx-core.c
-@@ -118,6 +118,7 @@ static const struct mfd_cell rk817s[] = {
+@@ -111,6 +111,7 @@ static const struct mfd_cell rk817s[] = {
  static const struct mfd_cell rk818s[] = {
- 	{ .name = "rk808-clkout", .id = PLATFORM_DEVID_NONE, },
- 	{ .name = "rk808-regulator", .id = PLATFORM_DEVID_NONE, },
+ 	{ .name = "rk808-clkout", },
+ 	{ .name = "rk808-regulator", },
 +	{ .name = "rk818-battery", .of_compatible = "rk818-battery", },
  	{
  		.name = "rk808-rtc",
