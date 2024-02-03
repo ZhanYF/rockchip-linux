@@ -14,7 +14,7 @@ Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
  1 file changed, 14 insertions(+)
 
 diff --git a/drivers/media/i2c/imx258.c b/drivers/media/i2c/imx258.c
-index 9a1f3097..30a3e60 100644
+index 9a1f309..30a3e60 100644
 --- a/drivers/media/i2c/imx258.c
 +++ b/drivers/media/i2c/imx258.c
 @@ -72,6 +72,8 @@
