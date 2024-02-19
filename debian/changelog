@@ -1,3 +1,9 @@
+linux-6.7-rockchip (6.7.5+rockchip-1) unstable; urgency=medium
+
+  * Rebase on 6.7.5
+
+ -- Mobot <group_9279_bot_63f8e5239ee997bddf744fbb961e9cce@noreply.salsa.debian.org>  Mon, 19 Feb 2024 08:37:32 +0000
+
 linux-6.7-rockchip (6.7.4+rockchip-1) unstable; urgency=medium
 
   * Rebase on 6.7.4
