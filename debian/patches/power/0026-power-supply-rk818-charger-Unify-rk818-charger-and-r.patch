@@ -15,10 +15,10 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  4 files changed, 94 insertions(+), 32 deletions(-)
 
 diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
-index 4decb48..43380ac 100644
+index b6c04b1..f8ef90e 100644
 --- a/drivers/power/supply/Kconfig
 +++ b/drivers/power/supply/Kconfig
-@@ -984,14 +984,6 @@ config FUEL_GAUGE_MM8013
+@@ -985,14 +985,6 @@ config FUEL_GAUGE_MM8013
  	  the state of charge, temperature, cycle count, actual and design
  	  capacity, etc.
  

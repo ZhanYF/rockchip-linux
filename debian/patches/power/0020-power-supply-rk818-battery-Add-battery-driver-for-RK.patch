@@ -87,10 +87,10 @@ index 75b5cf0..3d9632f 100644
  
  static const struct regmap_config rk805_regmap_config = {
 diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
-index f21cb05..fc18136 100644
+index 3e31375..296cf47 100644
 --- a/drivers/power/supply/Kconfig
 +++ b/drivers/power/supply/Kconfig
-@@ -984,4 +984,12 @@ config FUEL_GAUGE_MM8013
+@@ -985,4 +985,12 @@ config FUEL_GAUGE_MM8013
  	  the state of charge, temperature, cycle count, actual and design
  	  capacity, etc.
  
