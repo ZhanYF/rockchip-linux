@@ -1,0 +1,161 @@
+From: Julian <juliannfairfax@protonmail.com>
+Date: Sat, 27 Apr 2024 13:53:09 +0200
+Subject: PineTab2: add support for Wi-Fi driver
+
+---
+ .../boot/dts/rockchip/rk3566-pinetab2-v0.1.dts     |  2 +-
+ .../boot/dts/rockchip/rk3566-pinetab2-v2.0.dts     | 26 +++++++++-
+ arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi  | 59 ++++++++++++++++++++++
+ 3 files changed, 85 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3566-pinetab2-v0.1.dts b/arch/arm64/boot/dts/rockchip/rk3566-pinetab2-v0.1.dts
+index 5fe6ca5d..615ae72 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3566-pinetab2-v0.1.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3566-pinetab2-v0.1.dts
+@@ -24,5 +24,5 @@ lcd0_rst_l: lcd0-rst-l {
+ };
+ 
+ &sdmmc1 {
+-	vmmc-supply = <&vcc3v3_sys>;
++	mmc-pwrseq = <&sdio_pwrseq>;
+ };
+diff --git a/arch/arm64/boot/dts/rockchip/rk3566-pinetab2-v2.0.dts b/arch/arm64/boot/dts/rockchip/rk3566-pinetab2-v2.0.dts
+index 9349541c..411a549 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3566-pinetab2-v2.0.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3566-pinetab2-v2.0.dts
+@@ -7,8 +7,26 @@
+ / {
+ 	model = "Pine64 PineTab2 v2.0";
+ 	compatible = "pine64,pinetab2-v2.0", "pine64,pinetab2", "rockchip,rk3566";
++
++	sdio_pwrkey: sdio-pwrkey {
++		compatible = "mmc-pwrseq-simple";
++		clocks = <&rk817 1>;
++		clock-names = "ext_clock";
++		pinctrl-names = "default";
++		pinctrl-0 = <&wifi_pwrkey>;
++		reset-gpios = <&gpio3 RK_PD3 GPIO_ACTIVE_HIGH>;
++		post-power-on-delay-ms = <500>;
++	};
+ };
+ 
++/*
++ * This GPIO is claimed by sdio_pwrkey, it's better to move the power/reset function
++ * to the bootloader instead so that the Linux can use it.
++ */
++//&bes2600 {
++//	power-gpios = <&gpio3 RK_PD3 GPIO_ACTIVE_HIGH>;
++//};
++
+ &gpio_keys {
+ 	pinctrl-0 = <&kb_id_det>, <&hall_int_l>;
+ 
+@@ -41,8 +59,14 @@ hall_int_l: hall-int-l {
+ 			rockchip,pins = <0 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 	};
++
++	wifi {
++		wifi_pwrkey: wifi-pwrkey {
++			rockchip,pins = <3 RK_PD3 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
+ };
+ 
+ &sdmmc1 {
+-	vmmc-supply = <&vcc_sys>;
++	mmc-pwrseq = <&sdio_pwrseq &sdio_pwrkey>;
+ };
+diff --git a/arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi
+index db40281..be300af 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi
+@@ -134,6 +134,16 @@ simple-audio-card,codec {
+ 		};
+ 	};
+ 
++	sdio_pwrseq: sdio-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		clocks = <&rk817 1>;
++		clock-names = "ext_clock";
++		pinctrl-names = "default";
++		pinctrl-0 = <&wifi_reset>;
++		reset-gpios = <&gpio3 RK_PD2 GPIO_ACTIVE_LOW>;
++		post-power-on-delay-ms = <200>;
++	};
++
+ 	speaker_amp: speaker-amplifier {
+ 		compatible = "simple-audio-amplifier";
+ 		pinctrl-names = "default";
+@@ -227,6 +237,20 @@ vcc_sys: vcc-sys-regulator {
+ 		vin-supply = <&vcc_bat>;
+ 	};
+ 
++	vcc_wl: vcc_wl {
++		compatible = "regulator-fixed";
++		pinctrl-names = "default";
++		pinctrl-0 = <&wifi_pwren>;
++		regulator-name = "vcc_wl";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc3v3_sys>;
++
++		regulator-state-mem {
++			regulator-off-in-suspend;
++		};
++	};
++
+ 	vdd1v2_dvp: vdd1v2-dvp-regulator {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vdd1v2_dvp";
+@@ -777,6 +801,18 @@ host_wake_wl: host-wake-wl {
+ 			rockchip,pins = <0 RK_PB7 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 
++		wifi_pwren: wifi-pwren {
++			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		wifi_reg_on_h: wifi-reg-on-h {
++			rockchip,pins = <0 RK_PC0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		wifi_reset: wifi-reset {
++			rockchip,pins = <3 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
+ 		wifi_wake_host_h: wifi-wake-host-h {
+ 			rockchip,pins = <0 RK_PC4 RK_FUNC_GPIO &pcfg_pull_down>;
+ 		};
+@@ -850,8 +886,31 @@ &sdmmc1 {
+ 		     &sdmmc1_cmd
+ 		     &sdmmc1_clk>;
+ 	sd-uhs-sdr104;
++	vmmc-supply = <&vcc_wl>;
+ 	vqmmc-supply = <&vcca1v8_pmu>;
+ 	status = "okay";
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	bes2600: bes2600@0 {
++		compatible = "bestechnic,bes2600-sdio";
++		reg = <0>;
++
++		/*
++		 * The reset pin does not appear to be used in the latest driver drop by
++		 * Bestechnic. However, it is on the schematic but unfortunately wasn't
++		 * being used by Pine64.
++		 *
++		 * It doesn't hurt to configure it though, in case if they make use of
++		 * it in the near future.
++		 */
++		/* The reset pin is claimed by sdio_mmcseq, It's better to move it to U-Boot
++		 * so the OS can use it.
++		 */
++		//reset-gpios = <&gpio3 RK_PD2 GPIO_ACTIVE_LOW>;
++		wakeup-gpios = <&gpio0 RK_PB7 GPIO_ACTIVE_LOW>;
++		host-wakeup-gpios = <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
++	};
+ };
+ 
+ &sfc {
