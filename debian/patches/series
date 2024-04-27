@@ -135,5 +135,6 @@ device-tree/0134-arm64-dts-rk3399-pinephone-pro-Add-camera-orientatio.patch
 device-tree/0135-arm64-dts-rk3399-pinephone-pro-Fix-CSI-clock-frequen.patch
 device-tree/0136-arm64-dts-rk3399-pinephone-pro-Fix-adc-keys-threshol.patch
 device-tree/0137-PineTab2-add-support-for-Wi-Fi-driver.patch
-debian/0138-wireless-add-debian-wireless-regdb-certificates.patch
-mobian/0139-arm64-configs-add-rockchip_defconfig.patch
+0138-PineTab2-use-latest-display-driver-and-device-tree.patch
+debian/0139-wireless-add-debian-wireless-regdb-certificates.patch
+mobian/0140-arm64-configs-add-rockchip_defconfig.patch
